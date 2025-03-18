@@ -16,7 +16,18 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
-  } 
+  }
+  
+  const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false)
+    const element = document.getElementById(sectionId)
+    if (element) {
+      window?.lenis?.scrollTo(element, {
+        offset: 0,
+        duration: 2.5,
+      })
+    }
+  }
 
   return (
     <header className="bg-key-visual-required z-10 p-[30px] pl-4">
@@ -40,53 +51,64 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10">
-          <Link href="/about" className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}>
+          <button 
+            onClick={() => scrollToSection('about')} 
+            className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}
+          >
             DelQuiについて
-          </Link>
-          <Link href="/business" className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}>
+          </button>
+          <button 
+            onClick={() => scrollToSection('business')} 
+            className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}
+          >
             新規事業開発
-          </Link>
-          <Link href="/development" className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}>
+          </button>
+          <button 
+            onClick={() => scrollToSection('development')} 
+            className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}
+          >
             開発体制
-          </Link>
-          <Link href="/company" className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}>
+          </button>
+          <button 
+            onClick={() => scrollToSection('company')} 
+            className={`text-white ${notoSansJP.className} font-bold text-lg hover:text-key-visual-copy transition-colors`}
+          >
             企業情報
-          </Link>
-          <Link
-            href="/contact"
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
             className={`text-white ${notoSansJP.className} font-bold text-lg py-3 flex items-center justify-center gap-2 
             h-11 w-[195px] max-w-[195px] bg-sub-blue hover:bg-main-blue transition-colors rounded-full`}
           >
             お問い合わせ
             <Mail className="h-5 w-5" />
-          </Link>
+          </button>
         </nav>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-main-blue md:hidden">
             <nav className="flex flex-col p-4">
-              <Link href="/about" className={`text-white py-2 ${notoSansJP.className}`} onClick={() => setIsMenuOpen(false)}>
+              <button className={`text-white py-2 ${notoSansJP.className} text-left`} onClick={() => scrollToSection('about')}>
                 DelQuiについて
-              </Link>
-              <Link href="/business" className={`text-white py-2 ${notoSansJP.className}`} onClick={() => setIsMenuOpen(false)}>
+              </button>
+              <button className={`text-white py-2 ${notoSansJP.className} text-left`} onClick={() => scrollToSection('business')}>
                 新規事業開発
-              </Link>
-              <Link href="/development" className={`text-white py-2 ${notoSansJP.className}`} onClick={() => setIsMenuOpen(false)}>
+              </button>
+              <button className={`text-white py-2 ${notoSansJP.className} text-left`} onClick={() => scrollToSection('development')}>
                 開発体制
-              </Link>
-              <Link href="/company" className={`text-white py-2 ${notoSansJP.className}`} onClick={() => setIsMenuOpen(false)}>
+              </button>
+              <button className={`text-white py-2 ${notoSansJP.className} text-left`} onClick={() => scrollToSection('company')}>
                 企業情報
-              </Link>
-              <Link
-                href="/contact"
+              </button>
+              <button
                 className={`text-white ${notoSansJP.className} font-bold text-lg py-3 !px-[30px] flex items-center justify-center gap-2 
-                h-11`}
-                onClick={() => setIsMenuOpen(false)}
+                h-11 text-left`}
+                onClick={() => scrollToSection('contact')}
               >
                 お問い合わせ
                 <Mail className="h-5 w-5" />
-              </Link>
+              </button>
             </nav>
           </div>
         )}

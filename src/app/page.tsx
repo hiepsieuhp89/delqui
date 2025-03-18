@@ -14,10 +14,13 @@ import Footer from "@/components/Footer"
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1,
-      duration: 1,
+      lerp: 0.07,
+      duration: 2.5,
       // smoothTouch: true
     })
+
+    // Gán lenis vào window để có thể truy cập từ các component khác
+    window.lenis = lenis
 
     function raf(time: number) {
       lenis.raf(time)
@@ -29,6 +32,7 @@ export default function Home() {
     // Cleanup function
     return () => {
       lenis.destroy()
+      window.lenis = undefined
     }
   }, [])
 
@@ -36,11 +40,21 @@ export default function Home() {
     <main>
       <Header />
       <Banner />
-      <About />
-      <NewBusinessDevelopment />
-      <DevelopmentStructure />
-      <CompanyInformation />
-      <Contact />
+      <section id="about">
+        <About /> {/* DelQuiについて */}
+      </section>
+      <section id="business">
+        <NewBusinessDevelopment /> {/* 新規事業開発 */}
+      </section>
+      <section id="development">
+        <DevelopmentStructure /> {/* 開発体制 */}
+      </section>
+      <section id="company">
+        <CompanyInformation /> {/* 企業情報 */}
+      </section>
+      <section id="contact">
+        <Contact /> {/* お問い合わせ */}
+      </section>
       <Footer />
     </main>
   )
