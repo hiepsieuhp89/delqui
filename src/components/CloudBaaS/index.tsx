@@ -148,13 +148,15 @@ export default function CloudBaaS() {
               }}
             >
               <div className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full border-4 border-blue-200 flex items-center justify-center shadow-md">
-                  <div className="relative w-10 h-10">
+                <div className="
+                bg-key-blue2
+                w-20 h-20 rounded-full border-4 border-blue-200 flex items-center justify-center shadow-md">
+                  <div className="relative w-10 h-10 ">
                     <Image
                       src={item.imagePath}
                       alt={item.label}
                       fill
-                      className="object-contain"
+                      className="object-contain h-full w-full"
                     />
                   </div>
                 </div>

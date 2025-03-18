@@ -14,17 +14,12 @@ const nextConfig = {
         ignoreBuildErrors: true,
     },
     //  Skip khi run build
-    // eslint: {
-    //     ignoreDuringBuilds: true,
-    // },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     reactStrictMode: false,
     swcMinify: true,
     trailingSlash: false,
-    images: {
-        minimumCacheTTL: 43200,
-        domains: ['upload69.cam', 'upload69.com'],
-        unoptimized: process.env.NODE_ENV !== 'production',
-    },
     async rewrites() {
         return [
             {
@@ -73,16 +68,4 @@ const nextConfig = {
         return config;
     },
 };
-
-// Sửa phần này để tránh lỗi module không tìm thấy
-// Chỉ sử dụng Cloudflare khi đang ở môi trường phát triển cục bộ
-if (process.env.NODE_ENV === "development" && !process.env.VERCEL) {
-    try {
-        const { setupDevPlatform } = await import("@cloudflare/next-on-pages/next-dev");
-        await setupDevPlatform();
-    } catch (error) {
-        console.warn("Không thể thiết lập Cloudflare dev platform:", error);
-    }
-}
-
 export default nextConfig;

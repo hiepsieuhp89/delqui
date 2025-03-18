@@ -13,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html >
-      <body >
+    <html>
+      <head>
+        <link rel="icon" href="/images/favicon.png" type="image/png" />
+      </head>
+      <body>
         <NextTopLoader
           color="#2196F3"
           initialPosition={0.08}
