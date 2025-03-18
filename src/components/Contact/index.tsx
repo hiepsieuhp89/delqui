@@ -6,11 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Noto_Sans_JP } from "next/font/google"
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-});
+import { notoSansJP } from "@/fonts"
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",

@@ -2,24 +2,8 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { Noto_Sans_JP, Allison } from "next/font/google"
 import { motion } from "framer-motion"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ["700"],
-  subsets: ["latin"],
-  display: "swap",
-})
-
-const allison = Allison({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ['cursive', 'serif'],
-  preload: true,
-  adjustFontFallback: false,
-  variable: "--font-allison",
-})
+import { notoSansJP, allison } from "@/fonts"
 
 export function MobileBanner() {
   const [isLoaded, setIsLoaded] = useState(false)

@@ -1,14 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Noto_Sans_JP } from 'next/font/google'
 import { useCallback } from "react"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+import { notoSansJP } from "@/fonts"
 
 export function MobileFooter() {
   // Scroll to section function

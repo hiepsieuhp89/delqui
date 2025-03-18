@@ -2,20 +2,8 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { Noto_Sans_JP, Poppins } from "next/font/google"
 import CloudBaaS from "@/components/CloudBaaS"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ["100", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-})
-
-const poppinsFont = Poppins({
-  weight: ["500"],
-  subsets: ["latin"],
-  display: "swap",
-})
+import { notoSansJP } from "@/fonts"
 
 export function MobileDevelopmentStructure() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -143,11 +131,11 @@ export function MobileDevelopmentStructure() {
       className="md:hidden relative w-full py-[60px] h-[868px] px-5" id="development">
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center text-center mb-[74px]">
-        <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
+        <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white font-poppins`}>
         開発体制
         </h1>
         <div className="w-8 h-[1px] bg-white my-4"></div>
-        <p className={`${poppinsFont.className} text-base font-medium tracking-wider text-white uppercase`}>
+        <p className={`font-poppins text-base font-medium tracking-wider text-white uppercase`}>
         DEVELOPMENT STRUCTURE
         </p>
       </div>

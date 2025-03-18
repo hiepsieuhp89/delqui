@@ -2,21 +2,8 @@
 
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-import { Noto_Sans_JP, Poppins } from "next/font/google"
-import { ChevronDown } from "lucide-react"
+import { notoSansJP } from "@/fonts"
 import { MobileAbout } from "../MobileAbout"
-
-const notoSansJP = Noto_Sans_JP({
-    weight: ["100", "300", "400", "500", "600", "700"],
-    subsets: ["latin"],
-    display: "swap",
-})
-
-const poppinsFont = Poppins({
-    weight: ["500"],
-    subsets: ["latin"],
-    display: "swap",
-})
 
 export function MobileNewBusinessDevelopment() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -153,7 +140,7 @@ export function MobileNewBusinessDevelopment() {
                         新規事業
                     </h1>
                     <div className="w-8 h-[1px] bg-white my-4"></div>
-                    <p className={`${poppinsFont.className} text-base font-medium tracking-wider text-white uppercase`}>
+                    <p className={`font-poppins text-base font-medium tracking-wider text-white uppercase`}>
                         NEW BUSINESS DEVELOPMENT
                     </p>
                 </div>

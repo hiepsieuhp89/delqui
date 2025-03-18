@@ -6,19 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Noto_Sans_JP, Poppins } from "next/font/google"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ["100", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-})
-
-const poppinsFont = Poppins({
-  weight: ["500"],
-  subsets: ["latin"],
-  display: "swap",
-})
+import { notoSansJP } from "@/fonts"
 
 export function MobileContact() {
   const [formData, setFormData] = useState({
@@ -67,7 +55,7 @@ export function MobileContact() {
             お問い合わせ
           </h1>
           <div className="w-8 h-[1px] bg-main-blue my-4"></div>
-          <p className={`${poppinsFont.className} text-base font-medium tracking-wider text-main-blue uppercase`}>
+          <p className={`font-poppins text-base font-medium tracking-wider text-main-blue uppercase`}>
             CONTACT
           </p>
         </div>

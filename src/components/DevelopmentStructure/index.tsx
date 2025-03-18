@@ -1,13 +1,9 @@
 "use client"
 import Image from "next/image"
-import { Noto_Sans_JP } from 'next/font/google';
 import CloudBaaS from "../CloudBaaS";
 import { useEffect, useRef } from "react";
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { notoSansJP } from "@/fonts"
+
 export default function DevelopmentStructure() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 

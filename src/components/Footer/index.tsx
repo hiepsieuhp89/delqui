@@ -1,11 +1,6 @@
 import Link from "next/link"
-import { Noto_Sans_JP } from "next/font/google"
 import { useCallback } from "react"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-});
+import { notoSansJP } from "@/fonts"
 
 export default function Footer() {
   // Hàm xử lý cuộn đến section tương tự như Header

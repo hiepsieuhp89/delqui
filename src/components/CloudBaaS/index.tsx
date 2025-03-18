@@ -3,12 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Noto_Sans_JP } from 'next/font/google';
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { notoSansJP } from "@/fonts"
 export default function CloudBaaS() {
   const [rotation, setRotation] = useState(0)
   const [iconPositions, setIconPositions] = useState<{[key: number]: {x: number, y: number}}>({})

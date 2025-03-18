@@ -1,19 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Noto_Sans_JP, Poppins } from "next/font/google"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ["100", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-})
-
-const poppinsFont = Poppins({
-  weight: ["500"],
-  subsets: ["latin"],
-  display: "swap",
-})
+import { notoSansJP } from "@/fonts"
 
 export function MobileCompanyInformation() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -141,7 +129,7 @@ export function MobileCompanyInformation() {
             企業情報
           </h1>
           <div className="w-8 h-[1px] bg-white my-4"></div>
-          <p className={`${poppinsFont.className} text-base font-medium tracking-wider text-white uppercase`}>
+          <p className={`font-poppins text-base font-medium tracking-wider text-white uppercase`}>
             COMPANY INFORMATION
           </p>
         </div>

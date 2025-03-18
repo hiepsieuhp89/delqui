@@ -3,13 +3,8 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Mail } from "lucide-react"
-import { Noto_Sans_JP } from "next/font/google"
+import { notoSansJP } from "@/fonts"
 
-const notoSansJP = Noto_Sans_JP({
-    weight: ["400", "700"],
-    subsets: ["latin"],
-    display: "swap",
-})
 
 export function MobileHeader() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)

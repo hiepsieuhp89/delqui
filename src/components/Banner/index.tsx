@@ -2,24 +2,8 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { Noto_Sans_JP, Allison } from "next/font/google"
 import { motion, useScroll, useTransform } from "framer-motion"
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ["100", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-})
-
-const allison = Allison({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ['cursive', 'serif'],
-  preload: true,
-  adjustFontFallback: false,
-  variable: "--font-allison",
-})
+import { allison, notoSansJP } from "@/fonts"
 
 const Banner = () => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -62,9 +46,8 @@ const Banner = () => {
           </div>
           <p
             className={`${allison.className} text-key-visual-copy text-2xl md:text-3xl lg:text-4xl xl:text-[56px] select-none transform -rotate-[8deg] pl-4 md:pl-6 lg:pl-8 xl:pl-12`}
-            style={{ 
+            style={{
               letterSpacing: "3%",
-              fontFamily: `var(--font-allison), cursive`
             }}
           >
             Software Business

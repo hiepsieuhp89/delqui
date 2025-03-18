@@ -2,19 +2,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { useEffect, useRef } from "react"
-import { Noto_Sans_JP, Poppins } from "next/font/google";
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const poppinsFont = Poppins({
-  weight: ['500'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { allison, notoSansJP } from "@/fonts"
 
 const NewBusinessDevelopment = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)

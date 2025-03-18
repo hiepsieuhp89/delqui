@@ -1,11 +1,6 @@
 "use client"
+import { notoSansJP } from "@/fonts"
 
-import { useEffect, useRef } from "react"
-import { Noto_Sans_JP } from 'next/font/google';
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-});
 export default function CompanyInformation() {
 
   return (
@@ -28,7 +23,7 @@ export default function CompanyInformation() {
           {/* Company Name */}
           <div className="flex flex-row items-stretch">
             <div className="text-sm md:text-base px-3 md:px-4 lg:px-5 py-4 md:py-5 lg:py-6 font-bold border-b border-t border-key-blue flex items-center w-[25%] md:w-[28%] lg:w-[30%] xl:w-[200px]">社名</div>
-            <div className="text-sm md:text-base px-3 md:px-4 lg:px-5 py-4 md:py-5 lg:py-6 font-normal border-b border-t border-white flex items-center w-[75%] md:w-[72%] lg:w-[70%] xl:w-[700px]">株式会社Del Quincaillerie</div>
+            <div className="text-sm md:text-base px-3 md:px-4 lg:px-5 py-4 md:py-5 lg:py-6 font-normal border-b border-t border-white flex items-center w-[75%] md:w-[72%] lg:w-[70%] xl:w-[700px]">株式会社Del Qui</div>
           </div>
 
           {/* Established */}

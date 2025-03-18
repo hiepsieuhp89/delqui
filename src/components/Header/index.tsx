@@ -2,13 +2,7 @@
 
 import Link from "next/link"
 import { Mail } from "lucide-react"
-import { Noto_Sans_JP } from 'next/font/google';
-
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500','600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { notoSansJP } from "@/fonts"
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {

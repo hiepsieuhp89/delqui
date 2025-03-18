@@ -2,13 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Noto_Sans_JP } from 'next/font/google';
+import { notoSansJP } from "@/fonts"
 
-const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500','600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
 
