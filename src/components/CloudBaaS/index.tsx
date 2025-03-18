@@ -86,11 +86,10 @@ export default function CloudBaaS() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
-      <div className="relative w-[500px] h-[500px] flex justify-center items-center">
-        
+      <div className="relative max-w-[458px] w-[458px] h-[478px] -translate-x-[10%]
+      flex justify-center items-center bg-white">
         {/* Vẽ các đường kết nối theo kiểu khác */}
-        <svg className="absolute inset-0 w-full h-full z-0 overflow-visible">
+        <svg className="absolute inset-0 max-w-[458px] w-[458px] h-full z-0 overflow-visible">
           {Object.entries(iconPositions).map(([indexStr, pos]) => {
             // Tọa độ của tâm container
             const centerX = 250;
@@ -111,7 +110,7 @@ export default function CloudBaaS() {
         </svg>
 
         {/* Cloud BaaS Image */}
-        <div className="relative w-[230px] h-[120px] z-10">
+        <div className="relative w-[230px] h-[120px] z-10 flex justify-center items-center">
           <Image
             src="/images/cloud-basS.png"
             alt="Cloud BaaS"
@@ -120,6 +119,7 @@ export default function CloudBaaS() {
             className="object-contain h-full w-full"
             draggable={false}
           />
+          <h1 className="absolute bottom-7 z-50 text-[#295A99] font-poppins text-[28px] font-bold">BasS</h1>
         </div>
 
         {/* Rotating icons */}
@@ -148,7 +148,7 @@ export default function CloudBaaS() {
               }}
             >
               <div className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-blue-500 border-4 border-blue-200 flex items-center justify-center shadow-md">
+                <div className="w-20 h-20 rounded-full border-4 border-blue-200 flex items-center justify-center shadow-md">
                   <div className="relative w-10 h-10">
                     <Image
                       src={item.imagePath}
@@ -164,7 +164,6 @@ export default function CloudBaaS() {
           )
         })}
       </div>
-    </div>
   )
 }
 

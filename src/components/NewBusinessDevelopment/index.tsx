@@ -134,7 +134,7 @@ const NewBusinessDevelopment = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-0" style={{ maxHeight: '600px' }} />
 
       {/* Main Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col items-center justify-center">
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center text-center pt-[488px] mb-[60px]">
           <h1 className={`text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
@@ -228,7 +228,7 @@ const NewBusinessDevelopment = () => {
         </div>
 
         {/* Lean Agile Development Section */}
-        <div className="w-full relative h-[490px] mb-[70px]">
+        <div className="relative h-[490px] w-[1290px] mb-[70px]">
           <div className="w-[750px] h-[400px] absolute left-[130px] top-0">
             <Image
               src="/images/lean-agile.png"
@@ -249,7 +249,7 @@ const NewBusinessDevelopment = () => {
         </div>
 
         {/* User Behavior Research Section */}
-        <div className="w-full relative h-[490px] mb-[90px]">
+        <div className="w-[1290px] relative h-[490px] mb-[90px]">
           <div className="
           bg-white h-[286px] w-[600px] absolute left-[130px] bottom-0 p-[50px] flex flex-col justify-between items-start z-20">
             <h3 className={`text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-4`}>ユーザー行動調査</h3>
@@ -257,7 +257,7 @@ const NewBusinessDevelopment = () => {
               ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
             </p>
           </div>
-          <div className="w-[750px] h-[400px] absolute right-[130px] top-0 bg-red-500 z-10">
+          <div className="w-[750px] h-[400px] absolute right-[130px] top-0 z-10">
             <Image
               src="/images/user-behavior-research.png"
               alt="User Behavior Research"
