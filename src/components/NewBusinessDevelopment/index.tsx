@@ -218,85 +218,75 @@ const NewBusinessDevelopment = () => {
           <p className={`text-white ${notoSansJP.className} font-bold text-2xl`}>DelQuiがお手伝いできることがあります。</p>
 
           {/* Arrow Icon */}
-        <div className="h-[50px] w-12 flex items-center justify-center relative my-8">
-          <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer" />
+          <div className="h-[50px] w-12 flex items-center justify-center relative my-8">
+            <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer" />
+          </div>
+          <div className="text-center">
+            <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className} mb-4`}>各専門分野のメンバー構成により、</p>
+            <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>新規事業に特化したシステム開発を得意としています。</p>
+          </div>
         </div>
-        <div className="text-center mb-16">
-          <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className} mb-4`}>各専門分野のメンバー構成により、</p>
-          <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>新規事業に特化したシステム開発を得意としています。</p>
-        </div>
-        </div>
-       
 
         {/* Lean Agile Development Section */}
-        <div className="flex flex-col md:flex-row items-center mb-16 relative">
-          <div className="md:w-1/2">
+        <div className="w-full relative h-[490px] mb-[70px]">
+          <div className="w-[750px] h-[400px] absolute left-[130px] top-0">
             <Image
               src="/images/lean-agile.png"
               alt="Lean Agile Development"
-              width={600}
-              height={400}
-              className="w-full h-auto"
+              fill
+              draggable={false}
+              quality={100}
+              className="w-full h-full object-contain"
             />
           </div>
-          <Card className="md:w-1/2 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 bg-white">
-            <CardContent className="p-8">
-              <h3 className={`text-2xl ${notoSansJP.className} text-main-blue mb-4`}>リーン・アジャイル開発</h3>
-              <p className={`text-normal-text ${notoSansJP.className} text-sm leading-relaxed`}>
-                リーンスタートアップに基づいたアジャイル開発で、初期投資を抑えながらの迅速なプロトタイプを制作。
-                <br />
-                <br />
-                実際にユーザーに使ってもらい、その反応を分析することで課題や改善点を明確にします。
-              </p>
-            </CardContent>
-          </Card>
+          <div className="bg-white h-[286px] w-[600px] absolute right-[130px] bottom-0 p-[50px] flex flex-col justify-between items-start">
+            <h3 className={`text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-4`}>リーン・アジャイル開発</h3>
+            <p className={`text-normal-text font-normal text-base leading-relaxed ${notoSansJP.className}`}>
+              リーンスタートアップに基づいたアジャイル開発で、初期投資を抑えながらの迅速なプロトタイプを制作。
+              実際にユーザーに使ってもらい、その反応を分析することで課題や改善点を明確にします。
+            </p>
+          </div>
         </div>
 
         {/* User Behavior Research Section */}
-        <div className="flex flex-col md:flex-row-reverse items-center mb-16 relative">
-          <div className="md:w-1/2">
+        <div className="w-full relative h-[490px] mb-[90px]">
+          <div className="
+          bg-white h-[286px] w-[600px] absolute left-[130px] bottom-0 p-[50px] flex flex-col justify-between items-start z-20">
+            <h3 className={`text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-4`}>ユーザー行動調査</h3>
+            <p className={`text-normal-text font-normal text-base leading-relaxed ${notoSansJP.className}`}>
+              ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
+            </p>
+          </div>
+          <div className="w-[750px] h-[400px] absolute right-[130px] top-0 bg-red-500 z-10">
             <Image
-              src="/images/user-research.png"
+              src="/images/user-behavior-research.png"
               alt="User Behavior Research"
-              width={600}
-              height={400}
-              className="w-full h-auto"
+              fill
+              draggable={false}
+              quality={100}
+              className="w-full h-full object-contain"
             />
           </div>
-          <Card className="md:w-1/2 md:absolute md:left-0 md:top-1/2 md:transform md:-translate-y-1/2 bg-white">
-            <CardContent className="p-8">
-              <h3 className={`text-2xl ${notoSansJP.className} text-main-blue mb-4`}>ユーザー行動調査</h3>
-              <p className={`text-normal-text ${notoSansJP.className} text-sm leading-relaxed`}>
-                ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
-              </p>
-            </CardContent>
-          </Card>
+
         </div>
 
         {/* Final Message Section */}
-        <div className="text-center mb-16">
-          <p className={`text-white text-xl ${notoSansJP.className} mb-4`}>私たちは、単なるシステム開発会社ではありません。</p>
-          <p className={`text-white text-xl ${notoSansJP.className} mb-8`}>お客様のビジネスパートナーとして、</p>
-          <p className={`text-key-blue text-2xl ${notoSansJP.className} mb-2`}>アイデアの具現化から、市場への投入、</p>
-          <p className={`text-key-blue text-2xl ${notoSansJP.className}`}>
-            そしてその後のグロースまで、一貫してサポートいたします！
-          </p>
+        <div className="flex flex-col gap-2 justify-center items-center pb-40">
+          <p className={`text-white ${notoSansJP.className} font-bold text-2xl mb-4`}>私たちは、単なるシステム開発会社ではありません。</p>
+          <p className={`text-white ${notoSansJP.className} font-bold text-2xl mb-2`}>お客様のビジネスパートナーとして、</p>
+          <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>アイデアの具現化から、市場への投入、</p>
+          <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>そしてその後のグロースまで、一貫してサポートいたします！</p>
         </div>
 
         {/* Dotted Wave Background at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 z-0 overflow-hidden">
-          <svg width="100%" height="100%" viewBox="0 0 1440 200" preserveAspectRatio="none">
-            <path
-              d="M0,100 C320,130 420,150 640,70 C850,0 1200,100 1440,80 L1440,200 L0,200 Z"
-              fill="url(#dotPattern)"
-              opacity="0.3"
-            />
-            <defs>
-              <pattern id="dotPattern" patternUnits="userSpaceOnUse" width="10" height="10">
-                <circle cx="5" cy="5" r="1" fill="#7fc4fd" />
-              </pattern>
-            </defs>
-          </svg>
+        <div 
+        style={{
+          backgroundImage: "url('/images/wave-dotted-background.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="w-full absolute bottom-0 left-0 right-0 h-40 z-0 overflow-hidden">
         </div>
       </div>
     </div>
