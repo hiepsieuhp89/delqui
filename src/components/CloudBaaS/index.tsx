@@ -6,219 +6,154 @@ import Image from "next/image"
 import { notoSansJP } from "@/fonts"
 export default function CloudBaaS() {
   const [rotation, setRotation] = useState(0)
-  const [iconPositions, setIconPositions] = useState<{[key: number]: {x: number, y: number}}>({})
-  const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 })
-  
-  useEffect(() => {
-    let animationFrameId: number;
-    let lastTimestamp: number;
-    
-    const animate = (timestamp: number) => {
-      if (!lastTimestamp) lastTimestamp = timestamp;
-      const deltaTime = timestamp - lastTimestamp;
-      lastTimestamp = timestamp;
-      
-      // Điều chỉnh tốc độ xoay - càng nhỏ càng mượt
-      const rotationSpeed = 0.02;
-      setRotation((prev) => (prev + rotationSpeed * deltaTime) % 360);
-      
-      animationFrameId = requestAnimationFrame(animate);
-    };
-    
-    animationFrameId = requestAnimationFrame(animate);
-    
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Kiểm tra kích thước màn hình và cập nhật kích thước container
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-      if (containerRef.current) {
-        setContainerSize({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight
-        })
-      }
-    }
-    
-    // Kiểm tra ngay khi component được mount
-    handleResize()
-    
-    // Lắng nghe sự kiện resize
-    window.addEventListener('resize', handleResize)
-    
-    // Cleanup
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  const [radius, setRadius] = useState(180)
+  const [containerSize, setContainerSize] = useState(0)
 
   const icons = [
     {
       imagePath: "/images/basS-icon1.png",
       label: "ユーザー登録・招待",
-      angle: 0,
     },
     {
       imagePath: "/images/basS-icon2.png",
       label: "ログイン",
-      angle: 60,
     },
     {
       imagePath: "/images/basS-icon3.png",
       label: "データアクセス管理",
-      angle: 120,
     },
     {
       imagePath: "/images/basS-icon4.png",
       label: "DM機能",
-      angle: 180,
     },
     {
       imagePath: "/images/basS-icon5.png",
       label: "サーバー・ネットワーク",
-      angle: 240,
     },
     {
       imagePath: "/images/basS-icon6.png",
       label: "独自の高性能アクセスログ",
-      angle: 300,
     },
   ]
 
-  const getPosition = (angle: number) => {
-    // Điều chỉnh radius dựa trên kích thước thực của container
-    const radius = isMobile 
-      ? Math.min(containerSize.width * 0.35, 160)
-      : containerSize.width < 992 
-        ? 180  // Giá trị trung gian cho màn hình md
-        : containerSize.width < 1280
-          ? 200 // Giá trị trung gian cho màn hình lg
-          : 220 // Giữ nguyên cho xl
-    const radian = ((angle + rotation) * Math.PI) / 180
-    const x = radius * Math.cos(radian)
-    const y = radius * Math.sin(radian)
-    return { x, y }
+  // Calculate positions based on the number of icons
+  const calculatePosition = (index: number, totalIcons: number) => {
+    const angle = (index * (360 / totalIcons) + rotation) * (Math.PI / 180)
+    const x = Math.cos(angle) * radius
+    const y = Math.sin(angle) * radius
+    return { x, y, angle }
   }
-  
-  // Lưu vị trí icon sau khi chúng đã di chuyển
-  const updateIconPosition = (index: number, x: number, y: number) => {
-    setIconPositions(prev => ({
-      ...prev,
-      [index]: { x, y }
-    }))
-  }
+
+  // Update container size on resize
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        const size = Math.min(window.innerWidth * 0.4, 450)
+        setContainerSize(size)
+        
+        if (window.innerWidth <= 568) {
+          setRadius(size * 0.7)
+        } else if (window.innerWidth <= 768) {
+          setRadius(size * 0.5)
+        } else {
+          setRadius(size * 0.43) // Giá trị mặc định cho màn hình lớn hơn
+        }
+      }
+    }
+
+    updateSize()
+    window.addEventListener("resize", updateSize)
+    return () => window.removeEventListener("resize", updateSize)
+  }, [])
+
+  // Animate rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation((prev) => (prev + 0.1) % 360)
+    }, 16) // ~60fps
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-      <div 
+    <div className="flex justify-center items-center transform
+    !h-[320px] !lg:h-[440px] !md:h-[420px] !xl:h-[473px] ">
+      <div
         ref={containerRef}
-        className="relative 
-        w-full h-[320px] bg-transparent -translate-x-[5%]
-        md:max-w-[420px] md:w-[420px] md:h-[420px] md:-translate-x-[8%]
-        lg:max-w-[440px] lg:w-[440px] lg:h-[450px] lg:-translate-x-[9%]
-        xl:max-w-[458px] xl:w-[458px] xl:h-[478px] xl:-translate-x-[10%]
-        flex justify-center items-center">
-        {/* Vẽ các đường kết nối theo kiểu khác */}
-        <svg className="absolute inset-0 
-        w-full h-full
-        md:max-w-[420px] md:w-[420px]
-        lg:max-w-[440px] lg:w-[440px]
-        xl:max-w-[458px] xl:w-[458px] xl:h-full z-0 overflow-visible">
-          {Object.entries(iconPositions).map(([indexStr, pos]) => {
-            // Tọa độ của tâm container - responsive
-            const centerX = containerSize.width / 2;
-            const centerY = containerSize.height / 2;
-            const iconSize = isMobile ? 30 : 40; // Kích thước icon responsive
-            
-            return (
-              <line 
-                key={`conn-line-${indexStr}`}
-                x1={centerX} 
-                y1={centerY} 
-                x2={pos.x + iconSize} // Thêm offset để trỏ đến tâm icon
-                y2={pos.y + iconSize}
-                stroke="#93c5fd"
-                strokeWidth={isMobile ? "1" : "2"}
-                strokeDasharray="5,5"
-              />
-            );
-          })}
-        </svg>
-
-        {/* Cloud BaaS Image */}
-        <div className="relative w-[148px] h-[76px] md:w-[180px] md:h-[95px] lg:w-[210px] lg:h-[108px] xl:w-[230px] xl:h-[120px] z-10 flex justify-center items-center">
-          <Image
-            src="/images/cloud-basS.png"
-            alt="Cloud BaaS"
-            fill
-            quality={100}
-            className="object-contain h-full w-full select-none"
-            draggable={false}
-          />
-          <h1 className="select-none absolute bottom-4 md:bottom-5 lg:bottom-6 xl:bottom-7 z-50 text-[#295A99] font-poppins text-lg md:text-xl lg:text-2xl xl:text-[28px] font-bold">BasS</h1>
+        className="relative lg:translate-y-10"
+        style={{
+          width: `${containerSize}px`,
+          height: `${containerSize}px`,
+        }}
+      >
+        {/* Central BaaS cloud */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+          <div className="relative w-[148px] h-[76px] md:w-[180px] md:h-[95px] lg:w-[210px] lg:h-[108px] xl:w-[230px] xl:h-[120px] z-50 flex justify-center items-center">
+            <Image
+              src="/images/cloud-basS.png"
+              alt="Cloud BaaS"
+              fill
+              quality={100}
+              className="object-contain h-full w-full select-none"
+              draggable={false}
+            />
+            <h1 className="select-none absolute bottom-4 md:bottom-5 lg:bottom-6 xl:bottom-7 z-50 text-[#295A99] font-poppins text-lg md:text-xl lg:text-2xl xl:text-[28px] font-bold">BasS</h1>
+          </div>
         </div>
 
-        {/* Rotating icons */}
+        {/* Orbiting icons */}
         {icons.map((item, index) => {
-          const { x, y } = getPosition(item.angle)
-          const centerX = containerSize.width / 2;
-          const centerY = containerSize.height / 2;
-          const iconSize = isMobile 
-            ? 30 
-            : containerSize.width < 992 
-              ? 35 
-              : 40;
-          
+          const { x, y, angle } = calculatePosition(index, icons.length)
+          const centerX = containerSize / 2
+          const centerY = containerSize / 2
+
           return (
-            <motion.div
-              key={`icon-${index}`}
-              className="absolute z-[5] select-none"
-              style={{ 
-                top: 0,
-                left: 0,
-              }}
-              animate={{
-                x: x + centerX - iconSize / 2,
-                y: y + centerY - iconSize / 2,
-                transition: { 
-                  type: "spring", 
-                  stiffness: 100, 
-                  damping: 15,
-                  mass: 1 
-                },
-              }}
-              onUpdate={(latest) => {
-                updateIconPosition(index, latest.x as number, latest.y as number);
-              }}
-            >
-              <div className="flex flex-col items-center">
-                <div className="
-                bg-key-blue2
-                w-16 h-16 
+            <div key={index} className="absolute" style={{ zIndex: 20 }}>
+              {/* Connecting line */}
+              <motion.div
+                className="absolute z-10 origin-left h-[2px] dashed-line"
+                style={{
+                  width: radius,
+                  top: centerY,
+                  left: centerX,
+                  rotate: `${angle * (180 / Math.PI)}deg`,
+                  backgroundImage: "linear-gradient(to right, transparent 50%, #3B8CCE 50%)",
+                  backgroundSize: "10px 1px",
+                  opacity: 0.7,
+                }}
+              />
+
+              {/* Icon */}
+              <motion.div
+                className="absolute flex flex-col items-center z-50"
+                style={{
+                  top: centerY + y - 30,
+                  left: centerX + x - 30,
+                }}
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 bg-key-blue2
                 md:w-[72px] md:h-[72px] md:border-3
                 lg:w-[76px] lg:h-[76px] lg:border-3
-                xl:w-20 xl:h-20 xl:border-4 
-                rounded-full border-2 border-blue-200 flex items-center justify-center shadow-md">
-                  <div className="relative w-8 h-8 md:w-9 md:h-9 lg:w-9 lg:h-9 xl:w-10 xl:h-10">
-                    <Image
-                      src={item.imagePath}
-                      alt={item.label}
-                      fill
-                      className="object-contain h-full w-full"
-                    />
+                xl:w-20 xl:h-20 xl:border-4 rounded-full border-2 border-blue-200 flex items-center justify-center shadow-md">
+                    <div className="relative w-8 h-8 md:w-9 md:h-9 lg:w-9 lg:h-9 xl:w-10 xl:h-10">
+                      <Image
+                        src={item.imagePath}
+                        alt={item.label}
+                        fill
+                        className="object-contain h-full w-full"
+                      />
+                    </div>
                   </div>
+                  <div className={`mt-1 md:mt-1.5 lg:mt-2 xl:mt-2 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] max-w-[80px] md:max-w-[90px] lg:max-w-[95px] xl:max-w-[100px] ${notoSansJP.className}`}>{item.label}</div>
                 </div>
-                <div className={`mt-1 md:mt-1.5 lg:mt-2 xl:mt-2 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] max-w-[80px] md:max-w-[90px] lg:max-w-[95px] xl:max-w-[100px] ${notoSansJP.className}`}>{item.label}</div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           )
         })}
       </div>
+    </div>
   )
 }
 
