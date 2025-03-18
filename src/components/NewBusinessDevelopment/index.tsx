@@ -129,27 +129,28 @@ const NewBusinessDevelopment = () => {
   }, [])
 
   return (
-    <div className="relative w-full bg-sub-blue min-h-screen">
+    <div className="relative w-full min-h-screen">
       {/* Nền hiệu ứng hạt sử dụng canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0" style={{ maxHeight: '600px' }} />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0" 
+      style={{ maxHeight: '600px' }} />
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center pt-[488px] mb-[60px]">
-          <h1 className={`text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
+        <div className="flex flex-col items-center justify-center text-center pt-[300px] md:pt-[350px] lg:pt-[420px] xl:pt-[488px] mb-[40px] md:mb-[50px] lg:mb-[60px]">
+          <h1 className={`text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
             アプリ開発 <span className="mx-3 font-thin">×</span> 新規事業
           </h1>
-          <div className="w-10 h-[1px] bg-white my-6"></div>
-          <p className={`font-medium text-lg leading-tight tracking-wider text-center text-white uppercase font-poppins`}>
+          <div className="w-8 md:w-9 xl:w-10 h-[1px] bg-white my-4 md:my-5 xl:my-6"></div>
+          <p className={`font-medium text-base md:text-lg leading-tight tracking-wider text-center text-white uppercase font-poppins`}>
             NEW BUSINESS DEVELOPMENT
           </p>
         </div>
 
         {/* Three Cards Section */}
-        <div className="w-full flex justify-center items-center mb-[86px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] w-fit">
+        <div className="w-full flex justify-center items-center mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[86px] px-4 md:px-6 lg:px-8 xl:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px] w-fit">
             <div className="relative">
-              <div className="relative h-[300px] w-[360px]">
+              <div className="relative h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] w-full md:w-[260px] lg:w-[320px] xl:w-[360px]">
                 <Image
                   src="/images/business-card-1.png"
                   alt="Business idea concerns"
@@ -159,17 +160,19 @@ const NewBusinessDevelopment = () => {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="absolute -left-4 -bottom-4 right-0 flex flex-col gap-2">
-                <div className={`h-9 px-1 py-2 flex items-center justify-start font-bold text-normal-text text-xl bg-white w-fit ${notoSansJP.className}`}>
+              <div className="absolute -left-2 md:-left-3 xl:-left-4 -bottom-2 md:-bottom-3 xl:-bottom-4 right-0 flex flex-col gap-1 md:gap-2">
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   アイデアはあるけど、
                 </div>
-                <div className={`h-9 px-1 py-2 flex items-center justify-start font-bold text-normal-text text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   何から始めればいいかわからない...
                 </div>
               </div>
             </div>
+            
+            {/* Card 2 */}
             <div className="relative">
-              <div className="relative h-[300px] w-[360px]">
+              <div className="relative h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] w-full md:w-[260px] lg:w-[320px] xl:w-[360px]">
                 <Image
                   src="/images/business-card-2.png"
                   alt="System development concerns"
@@ -179,17 +182,19 @@ const NewBusinessDevelopment = () => {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="absolute -left-4 -bottom-4 right-0 flex flex-col gap-2">
-                <div className={`h-9 px-1 py-2 flex items-center justify-start font-bold text-normal-text text-xl bg-white w-fit ${notoSansJP.className}`}>
+              <div className="absolute -left-2 md:-left-3 xl:-left-4 -bottom-2 md:-bottom-3 xl:-bottom-4 right-0 flex flex-col gap-1 md:gap-2">
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   システム開発の知識がないので、
                 </div>
-                <div className={`h-9 px-1 py-2 flex items-center justify-start font-bold text-normal-text text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   どこに頼めばいいのか不安...
                 </div>
               </div>
             </div>
+            
+            {/* Card 3 */}
             <div className="relative">
-              <div className="relative h-[300px] w-[360px]">
+              <div className="relative h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] w-full md:w-[260px] lg:w-[320px] xl:w-[360px]">
                 <Image
                   src="/images/business-card-3.png"
                   alt="Idea validation concerns"
@@ -199,11 +204,11 @@ const NewBusinessDevelopment = () => {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="absolute -left-4 -bottom-4 right-0 flex flex-col gap-2">
-                <div className={`h-9 px-1 py-2 flex items-center justify-start font-bold text-normal-text text-xl bg-white w-fit ${notoSansJP.className}`}>
+              <div className="absolute -left-2 md:-left-3 xl:-left-4 -bottom-2 md:-bottom-3 xl:-bottom-4 right-0 flex flex-col gap-1 md:gap-2">
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   本当にこのアイデアが市場に
                 </div>
-                <div className={`h-9 px-1 py-2 flex items-center justify-start font-bold text-normal-text text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   受け入れられるのか、確信が持てない...
                 </div>
               </div>
@@ -212,23 +217,23 @@ const NewBusinessDevelopment = () => {
         </div>
 
         {/* Support Message */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <p className={`text-white ${notoSansJP.className} font-bold text-2xl mb-4`}>このような悩みを抱えているなら、</p>
-          <p className={`text-white ${notoSansJP.className} font-bold text-2xl`}>DelQuiがお手伝いできることがあります。</p>
+        <div className="flex flex-col items-center text-center mb-10 md:mb-12 lg:mb-14 xl:mb-16 px-4 md:px-6">
+          <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl mb-3 md:mb-4`}>このような悩みを抱えているなら、</p>
+          <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl`}>DelQuiがお手伝いできることがあります。</p>
 
           {/* Arrow Icon */}
-          <div className="h-[50px] w-12 flex items-center justify-center relative my-8">
+          <div className="h-[40px] md:h-[45px] xl:h-[50px] w-10 md:w-12 flex items-center justify-center relative my-6 md:my-7 xl:my-8">
             <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer" />
           </div>
           <div className="text-center">
-            <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className} mb-4`}>各専門分野のメンバー構成により、</p>
-            <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>新規事業に特化したシステム開発を得意としています。</p>
+            <p className={`text-key-blue text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold ${notoSansJP.className} mb-3 md:mb-4`}>各専門分野のメンバー構成により、</p>
+            <p className={`text-key-blue text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold ${notoSansJP.className}`}>新規事業に特化したシステム開発を得意としています。</p>
           </div>
         </div>
 
         {/* Lean Agile Development Section */}
-        <div className="relative h-[490px] w-[1290px] mb-[70px]">
-          <div className="w-[750px] h-[400px] absolute left-[130px] top-0">
+        <div className="relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1290px] mb-[50px] md:mb-[60px] lg:mb-[65px] xl:mb-[70px] px-4 md:px-0">
+          <div className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute left-0 md:left-[10%] lg:left-[130px] top-0">
             <Image
               src="/images/lean-agile.png"
               alt="Lean Agile Development"
@@ -238,9 +243,9 @@ const NewBusinessDevelopment = () => {
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="bg-white h-[286px] w-[600px] absolute right-[130px] bottom-0 p-[50px] flex flex-col justify-between items-start">
-            <h3 className={`text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-4`}>リーン・アジャイル開発</h3>
-            <p className={`text-normal-text font-normal text-base leading-relaxed ${notoSansJP.className}`}>
+          <div className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute right-0 md:right-[5%] lg:right-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start">
+            <h3 className={`text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-3 md:mb-4`}>リーン・アジャイル開発</h3>
+            <p className={`text-normal-text font-normal text-sm md:text-base leading-relaxed ${notoSansJP.className}`}>
               リーンスタートアップに基づいたアジャイル開発で、初期投資を抑えながらの迅速なプロトタイプを制作。
               実際にユーザーに使ってもらい、その反応を分析することで課題や改善点を明確にします。
             </p>
@@ -248,15 +253,14 @@ const NewBusinessDevelopment = () => {
         </div>
 
         {/* User Behavior Research Section */}
-        <div className="w-[1290px] relative h-[490px] mb-[90px]">
-          <div className="
-          bg-white h-[286px] w-[600px] absolute left-[130px] bottom-0 p-[50px] flex flex-col justify-between items-start z-20">
-            <h3 className={`text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-4`}>ユーザー行動調査</h3>
-            <p className={`text-normal-text font-normal text-base leading-relaxed ${notoSansJP.className}`}>
+        <div className="w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1290px] relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[90px] px-4 md:px-0">
+          <div className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute left-0 md:left-[5%] lg:left-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start z-20">
+            <h3 className={`text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-3 md:mb-4`}>ユーザー行動調査</h3>
+            <p className={`text-normal-text font-normal text-sm md:text-base leading-relaxed ${notoSansJP.className}`}>
               ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
             </p>
           </div>
-          <div className="w-[750px] h-[400px] absolute right-[130px] top-0 z-10">
+          <div className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute right-0 md:right-[10%] lg:right-[130px] top-0 z-10">
             <Image
               src="/images/user-behavior-research.png"
               alt="User Behavior Research"
@@ -266,7 +270,6 @@ const NewBusinessDevelopment = () => {
               className="w-full h-full object-contain"
             />
           </div>
-
         </div>
 
         {/* Final Message Section */}
@@ -289,6 +292,7 @@ const NewBusinessDevelopment = () => {
         </div>
       </div>
     </div>
+  
   )
 }
 

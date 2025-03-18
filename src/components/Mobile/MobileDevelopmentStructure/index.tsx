@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { Noto_Sans_JP, Poppins } from "next/font/google"
+import CloudBaaS from "@/components/CloudBaaS"
 
 const notoSansJP = Noto_Sans_JP({
   weight: ["100", "300", "400", "500", "600", "700"],
@@ -132,78 +133,53 @@ export function MobileDevelopmentStructure() {
   }, [])
 
   return (
-    <section className="md:hidden relative w-full bg-white" id="development">
-      {/* Header with particle background */}
-      <div className="relative w-full bg-sub-blue h-[200px] flex flex-col items-center justify-center">
-        <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center">
-          <h1 className={`text-2xl font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
-            開発体制
-          </h1>
-          <div className="w-8 h-[1px] bg-white my-4"></div>
-          <p className={`${poppinsFont.className} text-sm tracking-wider text-white uppercase`}>
-            DEVELOPMENT STRUCTURE
-          </p>
-        </div>
+    <section
+      style={{
+        backgroundImage: "url('/images/development-structure-bg-mb.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+      className="md:hidden relative w-full py-[60px] h-[868px] px-5" id="development">
+      {/* Header Section */}
+      <div className="flex flex-col items-center justify-center text-center mb-[74px]">
+        <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
+        開発体制
+        </h1>
+        <div className="w-8 h-[1px] bg-white my-4"></div>
+        <p className={`${poppinsFont.className} text-base font-medium tracking-wider text-white uppercase`}>
+        DEVELOPMENT STRUCTURE
+        </p>
       </div>
-
-      {/* Blue banner */}
-      <div className="relative w-full">
-        <div className="bg-key-blue2 px-4 py-3 w-full">
-          <h2 className={`text-lg font-bold text-white text-center ${notoSansJP.className}`}>
-            BaaSで実現する新しい開発のカタチ
-          </h2>
-        </div>
-      </div>
-
-      {/* BaaS Diagram */}
-      <div className="px-4 py-8 bg-white">
-        <div className="relative w-full h-[280px]">
-          <Image
-            src="/images/baas1.png"
-            alt="BaaS Diagram"
-            fill
-            draggable={false}
-            quality={100}
-            className="object-contain"
-          />
-        </div>
-
-        {/* Comparison Chart */}
-        <div className="mt-8 relative w-full h-[300px]">
-          <Image
-            src="/images/baas2.png"
-            alt="BaaS Comparison"
-            fill
-            draggable={false}
-            quality={100}
-            className="object-contain"
-          />
-        </div>
-
-        {/* Arrow */}
-        <div className="flex justify-center my-6">
-          <div className="relative h-[40px] w-[80px]">
-            <Image
-              src="/images/arrow-down-blue.png"
-              alt="Arrow down"
-              fill
-              draggable={false}
-              quality={100}
-              className="object-contain"
-            />
+      {/* Card */}
+      <div className="z-30 relative w-full">
+        <div className="flex justify-center">
+          <div className="absolute left-1/2 -translate-x-1/2 px-[22px] w-[90%] py-4 flex justify-center items-center bg-key-blue2 transform -translate-y-1/2">
+            <h1 className={`${notoSansJP.className} text-xl font-bold text-white text-center`}>BaaSで実現する新しい開発のカタチ</h1>
           </div>
         </div>
-
-        {/* Bottom text */}
-        <div className="text-center text-key-blue2 mt-4">
-          <h3 className={`text-xl font-bold ${notoSansJP.className} mb-2`}>
-            開発時間の短縮<span className="text-normal-text">と</span>
-          </h3>
-          <h3 className={`text-xl font-bold ${notoSansJP.className} mb-2`}>
-            コスト削減<span className="text-normal-text">を実現！</span>
-          </h3>
+        <div className="flex flex-col justify-start items-center px-5 bg-white h-auto pt-[70px] pb-[38px]"
+          style={{ boxShadow: "0px 0px 20px 0px #00000033" }}>
+          <div className="flex flex-col justify-between w-full gap-8">
+            <CloudBaaS />
+            <div className="w-full h-[1px] bg-[#B7B7B7] mt-8"></div>
+            <div className="w-full h-[308px] min-h-[308px] relative">
+              <Image
+                draggable={false}
+                width={1000}
+                height={1000}
+                quality={100}
+                src="/images/baas2.png"
+                alt="development-structure-image"
+                className="object-contain w-full h-full select-none" />
+            </div>
+          </div>
+          <div className="h-[54px] w-[56px] flex items-center justify-center relative my-6">
+            <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer select-none" />
+          </div>
+          <div className="min-h-[84px]  w-full flex items-center justify-center relative">
+            <Image src="/images/development-structure-text-mb.png" alt="Text" width={1000} height={1000} draggable={false} quality={100} className="h-full w-full object-fill cursor-pointer px-[10px] select-none" />
+          </div>
         </div>
       </div>
     </section>

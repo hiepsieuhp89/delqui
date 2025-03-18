@@ -30,7 +30,7 @@ export function MobileCompanyInformation() {
       const parent = canvas.parentElement
       if (parent) {
         canvas.width = parent.offsetWidth
-        canvas.height = parent.offsetHeight
+        canvas.height = Math.min(parent.offsetHeight, 600)
       }
     }
 
@@ -128,57 +128,59 @@ export function MobileCompanyInformation() {
   }, [])
 
   return (
-    <section className="md:hidden relative w-full bg-sub-blue" id="company">
+    <section className="md:hidden relative w-full bg-sub-blue h-fit pb-[60px]" id="company">
       {/* Background particle animation */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-
+      <canvas 
+        ref={canvasRef} 
+        className="w-full absolute inset-0 top-0 z-0 h-[600px]" />
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center px-4 py-16">
+      <div className="relative z-10 flex flex-col items-center px-5 pt-[430px]">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center mb-10">
-          <h1 className={`text-2xl font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
+        <div className="flex flex-col items-center justify-center text-center mb-[74px]">
+          <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
             企業情報
           </h1>
           <div className="w-8 h-[1px] bg-white my-4"></div>
-          <p className={`${poppinsFont.className} text-sm tracking-wider text-white uppercase`}>COMPANY INFORMATION</p>
+          <p className={`${poppinsFont.className} text-base font-medium tracking-wider text-white uppercase`}>
+            COMPANY INFORMATION
+          </p>
         </div>
-
         {/* Company information list */}
         <div className="w-full text-white">
           {/* Company Name */}
-          <div className="border-b border-white/30 py-5">
-            <h3 className={`text-base font-bold mb-3 ${notoSansJP.className}`}>会社名</h3>
-            <p className={`text-base ${notoSansJP.className}`}>株式会社Del Qui</p>
+          <div className="border-b border-white border-t py-6 flex flex-col gap-6">
+            <h3 className={`text-base font-bold ${notoSansJP.className}`}>会社名</h3>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>株式会社Del Qui</p>
           </div>
 
           {/* Established */}
-          <div className="border-b border-white/30 py-5">
-            <h3 className={`text-base font-bold mb-3 ${notoSansJP.className}`}>設立</h3>
-            <p className={`text-base ${notoSansJP.className}`}>2022年1月</p>
+          <div className="border-b border-white py-6 flex flex-col gap-6">
+            <h3 className={`text-base font-bold ${notoSansJP.className}`}>設立</h3>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>2022年1月</p>
           </div>
 
           {/* Headquarters */}
-          <div className="border-b border-white/30 py-5">
-            <h3 className={`text-base font-bold mb-3 ${notoSansJP.className}`}>本社所在地</h3>
-            <p className={`text-base ${notoSansJP.className}`}>沖縄県石垣島</p>
+          <div className="border-b border-white py-6 flex flex-col gap-6">
+            <h3 className={`text-base font-bold ${notoSansJP.className}`}>本社所在地</h3>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>沖縄県石垣島</p>
           </div>
 
           {/* Overseas Office */}
-          <div className="border-b border-white/30 py-5">
-            <h3 className={`text-base font-bold mb-3 ${notoSansJP.className}`}>海外駐在所</h3>
-            <p className={`text-base ${notoSansJP.className}`}>Ho Chi Minh City</p>
+          <div className="border-b border-white py-6 flex flex-col gap-6">
+            <h3 className={`text-base font-bold ${notoSansJP.className}`}>海外駐在所</h3>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>Ho Chi Minh City</p>
           </div>
 
           {/* Capital */}
-          <div className="border-b border-white/30 py-5">
-            <h3 className={`text-base font-bold mb-3 ${notoSansJP.className}`}>資本金</h3>
-            <p className={`text-base ${notoSansJP.className}`}>650万円（資本準備金含む）</p>
+          <div className="border-b border-white py-6 flex flex-col gap-6">
+            <h3 className={`text-base font-bold ${notoSansJP.className}`}>資本金</h3>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>650万円（資本準備金含む）</p>
           </div>
 
           {/* Business Description */}
-          <div className="border-b border-white/30 py-5">
-            <h3 className={`text-base font-bold mb-3 ${notoSansJP.className}`}>事業内容</h3>
-            <p className={`text-base ${notoSansJP.className}`}>
+          <div className="border-b border-white py-6 flex flex-col gap-6">
+            <h3 className={`text-base font-bold ${notoSansJP.className}`}>事業内容</h3>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>
               各種ソフトウェアの開発、モバイルアプリの開発、ITコンサルティング、自社プロダクトの開発、他
             </p>
           </div>

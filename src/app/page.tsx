@@ -74,10 +74,9 @@ export default function Home() {
 
   if (isMobile) {
     return (
-      <main>
+      <main className="overflow-x-hidden">
         <MobileHeader />
         <MobileBanner />
-        {/* <MobileAbout /> DelQuiについて */}
         <MobileNewBusinessDevelopment /> {/* 新規事業開発 */}
         <MobileDevelopmentStructure /> {/* 開発体制 */}
         <MobileCompanyInformation /> {/* 企業情報 */}
@@ -88,7 +87,7 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className="bg-sub-blue">
       <Header />
       <Banner />
       <section id="about">

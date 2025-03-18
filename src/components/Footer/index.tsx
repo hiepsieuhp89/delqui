@@ -21,17 +21,17 @@ export default function Footer() {
 
   return (
     <footer className={`bg-normal-text text-white ${notoSansJP.className}`}>
-      <div className="px-[200px] py-[60px]">
+      <div className="px-5 py-8 md:px-10 lg:px-16 xl:px-[200px] md:py-10 lg:py-12 xl:py-[60px]">
         <div className="flex flex-col justify-between space-y-8 md:flex-row md:items-center md:space-y-0">
           {/* Logo */}
           <div>
-            <Link href="/" className="text-[52px] font-bold tracking-tight text-white">
+            <Link href="/" className="text-3xl md:text-4xl lg:text-5xl xl:text-[52px] font-bold tracking-tight text-white">
               DelQui
             </Link>
           </div>
 
           {/* Navigation */}
-          <nav className={`flex flex-wrap justify-center gap-x-8 gap-y-4 text-base font-bold md:justify-end ${notoSansJP.className}`}>
+          <nav className={`flex flex-wrap justify-center gap-x-4 md:gap-x-5 lg:gap-x-6 xl:gap-x-8 gap-y-4 text-sm md:text-base font-bold md:justify-end ${notoSansJP.className}`}>
             <button onClick={() => scrollToSection('about')} className="hover:text-key-visual-copy transition-colors">
               DelQuiについて
             </button>
@@ -53,8 +53,8 @@ export default function Footer() {
           </nav>
         </div>
         {/* Copyright */}
-        <div className="mt-[50px]">
-          <p className="text-base font-medium font-poppins">© 2025 DelQui</p>
+        <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-[50px]">
+          <p className="text-sm md:text-base font-medium font-poppins">© 2025 DelQui</p>
         </div>
       </div>
     </footer>

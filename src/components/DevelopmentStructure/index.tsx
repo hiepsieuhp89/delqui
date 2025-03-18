@@ -132,32 +132,32 @@ export default function DevelopmentStructure() {
           position: "relative",
           zIndex: 20
         }}
-        className={`w-full bg-white ${notoSansJP.className} h-[868px] max-h-[868px] px-[100px] relative flex-col items-center justify-center text-center`}>
+        className={`w-full bg-white ${notoSansJP.className} md:h-[700px] lg:h-[780px] xl:h-[868px] max-h-[868px] md:px-[40px] lg:px-[60px] xl:px-[100px] relative flex-col items-center justify-center text-center`}>
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center pt-[156px] pb-4">
-          <h1 className={`text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
+        <div className="flex flex-col items-center justify-center text-center md:pt-[100px] lg:pt-[130px] xl:pt-[156px] pb-4">
+          <h1 className={`md:text-[36px] lg:text-[42px] xl:text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
             開発体制
           </h1>
           <div className="w-10 h-[1px] bg-white my-6"></div>
-          <p className={`font-medium text-lg leading-tight tracking-wider text-center text-white uppercase font-poppins`}>
+          <p className={`font-medium md:text-base lg:text-lg leading-tight tracking-wider text-center text-white uppercase font-poppins`}>
             DEVELOPMENT STRUCTURE
           </p>
         </div>
       </div>
-      <div className="z-30 relative w-[1100px] -top-[492px] ">
-        <div className="flex justify-center ">
-          <div className="absolute left-1/2 -translate-x-1/2 px-[60px] w-fit py-6 flex justify-center items-center bg-key-blue2 h-20 transform -translate-y-1/2">
-            <h1 className="text-[30px] font-bold text-white text-nowrap">BaaSで実現する新しい開発のカタチ</h1>
+      <div className="z-30 relative md:w-[90%] lg:w-[95%] xl:w-[1100px] md:-top-[380px] lg:-top-[440px] xl:-top-[492px]">
+        <div className="flex justify-center">
+          <div className="absolute left-1/2 -translate-x-1/2 md:px-[30px] lg:px-[45px] xl:px-[60px] w-fit py-6 flex justify-center items-center bg-key-blue2 md:h-16 lg:h-18 xl:h-20 transform -translate-y-1/2">
+            <h1 className="md:text-[20px] lg:text-[26px] xl:text-[30px] font-bold text-white text-nowrap">BaaSで実現する新しい開発のカタチ</h1>
           </div>
         </div>
         <div className="flex flex-col justify-start items-center  
-        px-[100px] bg-white
-        h-[848px] pt-[115px]"
+        md:px-[40px] lg:px-[60px] xl:px-[100px] bg-white
+        md:h-[700px] lg:h-[780px] xl:h-[848px] md:pt-[90px] lg:pt-[100px] xl:pt-[115px]"
         style={{ boxShadow: "0px 0px 40px 0px #00000033" }}>
           <div className="flex flex-row justify-between w-full">
             <CloudBaaS />
-            <div className="w-[1px] h-[477px] bg-[#B7B7B7]"></div>
-            <div className="w-[319px] h-[477px] relative">
+            <div className="w-[1px] md:h-[380px] lg:h-[430px] xl:h-[477px] bg-[#B7B7B7]"></div>
+            <div className="md:w-[240px] lg:w-[280px] xl:w-[319px] md:h-[380px] lg:h-[430px] xl:h-[477px] relative">
               <Image
                 draggable={false}
                 fill
@@ -167,10 +167,10 @@ export default function DevelopmentStructure() {
                 className="object-contain w-full h-full" />
             </div>
           </div>
-          <div className="h-[50px] w-12 flex items-center justify-center relative my-8">
+          <div className="h-[50px] w-12 flex items-center justify-center relative md:my-5 lg:my-6 xl:my-8">
             <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer" />
           </div>
-          <div className="h-[60px] w-[710px] flex items-center justify-center relative">
+          <div className="md:h-[45px] lg:h-[50px] xl:h-[60px] md:w-[500px] lg:w-[600px] xl:w-[710px] flex items-center justify-center relative">
             <Image src="/images/development-structure-text.png" alt="Text" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer" />
           </div>
         </div>

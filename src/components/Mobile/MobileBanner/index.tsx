@@ -15,13 +15,24 @@ const allison = Allison({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
+  fallback: ['cursive', 'serif'],
+  preload: true,
+  adjustFontFallback: false,
+  variable: "--font-allison",
 })
 
 export function MobileBanner() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [fontLoaded, setFontLoaded] = useState(false)
 
   useEffect(() => {
     setIsLoaded(true)
+    
+    document.fonts.ready.then(() => {
+      if (document.fonts.check('1em Allison')) {
+        setFontLoaded(true);
+      } 
+    });
   }, [])
 
   return (
@@ -38,7 +49,13 @@ export function MobileBanner() {
             <h1 className={`w-full text-[34px] ${notoSansJP.className} font-bold leading-tight text-start`}>「すべての人」に</h1>
             <h1 className={`w-full text-[34px] ${notoSansJP.className} font-bold leading-tight text-start`}>ソフトウェア事業を。</h1>
           </div>
-          <p className={`${allison.className} text-[#f8d57e] text-[40px] transform -rotate-[8deg] -mt-4`}>
+          <p 
+            className={`${allison.className} text-[#f8d57e] text-[40px] transform -rotate-[8deg] -mt-4`}
+            style={{ 
+              fontFamily: `var(--font-allison), cursive`,
+              opacity: fontLoaded ? 1 : 0.98
+            }}
+          >
             Software Business
             <br />
             for Everyone
