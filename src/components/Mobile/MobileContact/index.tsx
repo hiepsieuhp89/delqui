@@ -6,12 +6,21 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Noto_Sans_JP } from "next/font/google"
+import { Noto_Sans_JP, Poppins } from "next/font/google"
+
 const notoSansJP = Noto_Sans_JP({
-  weight: ['100', '300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-});
-export default function Contact() {
+  weight: ["100", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const poppinsFont = Poppins({
+  weight: ["500"],
+  subsets: ["latin"],
+  display: "swap",
+})
+
+export function MobileContact() {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -40,32 +49,38 @@ export default function Contact() {
   }
 
   return (
-    <div 
-    style={{
-      backgroundImage: 'url("/images/contact-background.png")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-    }}  
-    className="flex flex-col justify-center items-center w-full text-normal-text py-[120px]">
-      <div className="relative px-4 md:px-8 w-[550px] max-w-[550px]">
-         <div className="flex flex-col items-center justify-center text-center pb-[50px]">
-          <h1 className={`text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-main-blue ${notoSansJP.className}`}>
-          お問い合わせ
+    <section
+      id="contact"
+      className="md:hidden w-full"
+      style={{
+        backgroundImage: 'url("/images/contact-background.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="flex flex-col justify-center items-center w-full text-normal-text py-16 px-6">
+        {/* Header */}
+        <div className="flex flex-col items-center justify-center text-center mb-8">
+          <h1 className={`text-2xl font-bold leading-tight tracking-wider text-main-blue ${notoSansJP.className}`}>
+            お問い合わせ
           </h1>
-          <div className="w-10 h-[1px] bg-main-blue my-6"></div>
-          <p className={`font-medium text-lg leading-tight tracking-wider text-center text-main-blue uppercase font-poppins`}>
-          CONTACT
-          </p>
-        </div>
-        <div className="mb-6 text-center">
-          <p className="mb-2 text-base font-normal">お客様の状況に合わせた最適なプランをご提案しております。</p>
-          <p className="text-base font-normal">まずはお気軽にお問い合わせください。</p>
+          <div className="w-8 h-[1px] bg-main-blue my-4"></div>
+          <p className={`${poppinsFont.className} text-sm tracking-wider text-main-blue uppercase`}>CONTACT</p>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-[22px]">
-            <Label htmlFor="name" className="mb-2 block">
+        {/* Introduction text */}
+        <div className="mb-8 text-center">
+          <p className={`mb-2 text-sm font-normal ${notoSansJP.className}`}>
+            お客様の状況に合わせた最適なプランをご提案しております。
+          </p>
+          <p className={`text-sm font-normal ${notoSansJP.className}`}>まずはお気軽にお問い合わせください。</p>
+        </div>
+
+        {/* Contact Form */}
+        <form onSubmit={handleSubmit} className="w-full">
+          <div className="mb-5">
+            <Label htmlFor="name" className={`mb-2 block text-sm ${notoSansJP.className}`}>
               お名前
               <span className="ml-1 text-key-visual-required">※</span>
             </Label>
@@ -79,8 +94,8 @@ export default function Contact() {
             />
           </div>
 
-          <div className="mb-[22px]">
-            <Label htmlFor="company" className="mb-2 block">
+          <div className="mb-5">
+            <Label htmlFor="company" className={`mb-2 block text-sm ${notoSansJP.className}`}>
               会社名
               <span className="ml-1 text-key-visual-required">※</span>
             </Label>
@@ -94,8 +109,8 @@ export default function Contact() {
             />
           </div>
 
-          <div className="mb-[22px]">
-            <Label htmlFor="email" className="mb-2 block">
+          <div className="mb-5">
+            <Label htmlFor="email" className={`mb-2 block text-sm ${notoSansJP.className}`}>
               メールアドレス
               <span className="ml-1 text-key-visual-required">※</span>
             </Label>
@@ -110,8 +125,8 @@ export default function Contact() {
             />
           </div>
 
-          <div className="mb-[22px]">
-            <Label htmlFor="phone" className="mb-2 block">
+          <div className="mb-5">
+            <Label htmlFor="phone" className={`mb-2 block text-sm ${notoSansJP.className}`}>
               電話番号
               <span className="ml-1 text-key-visual-required">※</span>
             </Label>
@@ -126,8 +141,8 @@ export default function Contact() {
             />
           </div>
 
-          <div className="mb-[50px]">
-            <Label htmlFor="message" className="mb-2 block">
+          <div className="mb-8">
+            <Label htmlFor="message" className={`mb-2 block text-sm ${notoSansJP.className}`}>
               お問い合わせ内容
               <span className="ml-1 text-key-visual-required">※</span>
             </Label>
@@ -137,21 +152,21 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="min-h-[120px] w-full rounded border border-form-list-border bg-white"
+              className="min-h-[150px] w-full rounded border border-form-list-border bg-white"
             />
           </div>
 
           <div className="flex justify-center">
             <Button
               type="submit"
-              className="h-14 w-64 rounded-full bg-[#2B5D8E] text-lg font-medium text-white hover:bg-main-blue"
+              className={`h-14 w-full rounded-full bg-key-blue2 text-base font-medium text-white hover:bg-main-blue ${notoSansJP.className}`}
             >
               送信する
             </Button>
           </div>
         </form>
       </div>
-    </div>
+    </section>
   )
 }
 

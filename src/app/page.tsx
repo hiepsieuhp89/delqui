@@ -11,45 +11,81 @@ import DevelopmentStructure from "@/components/DevelopmentStructure"
 import CompanyInformation from "@/components/CompanyInformation"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
+import {MobileHeader} from "@/components/Mobile/MobileHeader"
+import {MobileBanner} from "@/components/Mobile/MobileBanner"
+import { MobileAbout } from '@/components/Mobile/MobileAbout';
+import { MobileNewBusinessDevelopment } from '@/components/Mobile/MobileNewBusinessDevelopment';
+import { MobileDevelopmentStructure } from '@/components/Mobile/MobileDevelopmentStructure';
+import { MobileCompanyInformation } from '@/components/Mobile/MobileCompanyInformation';
+import { MobileContact } from '@/components/Mobile/MobileContact';
+import { MobileFooter } from '@/components/Mobile/MobileFooter';
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.07,
-      duration: 2.5,
-      // smoothTouch: true
-    })
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    
+    window.addEventListener('resize', checkScreenSize);
 
-    // Gán lenis vào window để có thể truy cập từ các component khác
-    window.lenis = lenis
+    // Chỉ khởi tạo Lenis khi không phải là giao diện di động
+    let lenis: any = null;
+    if (!isMobile) {
+      lenis = new Lenis({
+        lerp: 0.07,
+        duration: 2.5,
+        // smoothTouch: true
+      })
 
-    function raf(time: number) {
-      lenis.raf(time)
+      window.lenis = lenis
+
+      const raf = (time: number) => {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+      
       requestAnimationFrame(raf)
     }
-    
-    requestAnimationFrame(raf)
 
-    // Thêm event listener để theo dõi vị trí scroll
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > window.innerHeight);
     };
     
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function
     return () => {
-      lenis.destroy()
-      window.lenis = undefined
+      if (lenis) {
+        lenis.destroy()
+        window.lenis = undefined
+      }
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkScreenSize);
     }
-  }, [])
+  }, [isMobile]) // Thêm isMobile vào dependencies để useEffect chạy lại khi có thay đổi
 
   const scrollToTop = () => {
     window.lenis?.scrollTo(0, { duration: 1.5 });
   };
+
+  if (isMobile) {
+    return (
+      <main>
+        <MobileHeader />
+        <MobileBanner />
+        {/* <MobileAbout /> DelQuiについて */}
+        <MobileNewBusinessDevelopment /> {/* 新規事業開発 */}
+        <MobileDevelopmentStructure /> {/* 開発体制 */}
+        <MobileCompanyInformation /> {/* 企業情報 */}
+        <MobileContact /> {/* お問い合わせ */}
+        <MobileFooter /> {/* フッター */}
+      </main>
+    );
+  }
 
   return (
     <main>

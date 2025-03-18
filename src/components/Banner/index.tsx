@@ -35,7 +35,6 @@ const Banner = () => {
   return (
     <div className="w-full h-[120vh] bg-key-visual-required overflow-x-hidden">
       <div className="mx-auto h-full flex flex-col md:flex-row items-center justify-between pb-[130px] pr-[54px] pl-[160px] relative">
-        {/* Text section */}
         <motion.div
           className="absolute left-[120px] text-white z-10 mb-12"
           initial={{ opacity: 0, y: 50 }}
@@ -59,7 +58,6 @@ const Banner = () => {
               ソフトウェア事業を。
             </h1>
           </div>
-          {/* Make sure the Allison font class is properly applied */}
           <p
             className={`${allison.className} text-key-visual-copy text-2xl md:text-[56px] select-none transform -rotate-[8deg] pl-12`}
             style={{ letterSpacing: "3%" }}

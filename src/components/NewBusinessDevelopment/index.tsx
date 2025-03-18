@@ -132,7 +132,6 @@ const NewBusinessDevelopment = () => {
     <div className="relative w-full bg-sub-blue min-h-screen">
       {/* Nền hiệu ứng hạt sử dụng canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0" style={{ maxHeight: '600px' }} />
-
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center">
         {/* Header Section */}
@@ -286,7 +285,7 @@ const NewBusinessDevelopment = () => {
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-full absolute bottom-0 left-0 right-0 h-40 z-0 overflow-hidden">
+        className="w-full absolute bottom-0 left-0 right-0 h-[292px] z-0 overflow-hidden">
         </div>
       </div>
     </div>
