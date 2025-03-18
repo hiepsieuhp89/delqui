@@ -146,7 +146,7 @@ export default function CloudBaaS() {
                       />
                     </div>
                   </div>
-                  <div className={`mt-1 md:mt-1.5 lg:mt-2 xl:mt-2 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] max-w-[80px] md:max-w-[90px] lg:max-w-[95px] xl:max-w-[100px] ${notoSansJP.className}`}>{item.label}</div>
+                  <div className={`mt-1 md:mt-1.5 lg:mt-2 xl:mt-2 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] w-[96px] ${notoSansJP.className}`}>{item.label}</div>
                 </div>
               </motion.div>
             </div>
