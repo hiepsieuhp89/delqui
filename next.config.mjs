@@ -1,5 +1,4 @@
 import TerserPlugin from "terser-webpack-plugin";
-import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -75,8 +74,15 @@ const nextConfig = {
     },
 };
 
-if (process.env.NODE_ENV === "development") {
-    await setupDevPlatform();
+// Sửa phần này để tránh lỗi module không tìm thấy
+// Chỉ sử dụng Cloudflare khi đang ở môi trường phát triển cục bộ
+if (process.env.NODE_ENV === "development" && !process.env.VERCEL) {
+    try {
+        const { setupDevPlatform } = await import("@cloudflare/next-on-pages/next-dev");
+        await setupDevPlatform();
+    } catch (error) {
+        console.warn("Không thể thiết lập Cloudflare dev platform:", error);
+    }
 }
 
 export default nextConfig;
