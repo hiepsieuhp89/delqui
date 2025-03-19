@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { useEffect, useRef } from "react"
 import { allison, notoSansJP } from "@/fonts"
+import { motion } from "framer-motion"
 
 const NewBusinessDevelopment = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -116,6 +117,65 @@ const NewBusinessDevelopment = () => {
     }
   }, [])
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut" 
+      }
+    }
+  }
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut" 
+      }
+    }
+  }
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 100 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut" 
+      }
+    }
+  }
+
   return (
     <div className="relative w-full min-h-screen">
       {/* Nền hiệu ứng hạt sử dụng canvas */}
@@ -124,7 +184,13 @@ const NewBusinessDevelopment = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center pt-[300px] md:pt-[350px] lg:pt-[420px] xl:pt-[488px] mb-[40px] md:mb-[50px] lg:mb-[60px]">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+          className="flex flex-col items-center justify-center text-center pt-[300px] md:pt-[350px] lg:pt-[420px] xl:pt-[488px] mb-[40px] md:mb-[50px] lg:mb-[60px]"
+        >
           <h1 className={`text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
             アプリ開発 <span className="mx-3 font-thin">×</span> 新規事業
           </h1>
@@ -132,12 +198,18 @@ const NewBusinessDevelopment = () => {
           <p className={`font-medium text-base md:text-lg leading-tight tracking-wider text-center text-white uppercase font-poppins`}>
             NEW BUSINESS DEVELOPMENT
           </p>
-        </div>
+        </motion.div>
 
         {/* Three Cards Section */}
-        <div className="w-full flex justify-center items-center mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[86px] px-4 md:px-6 lg:px-8 xl:px-0">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerChildren}
+          className="w-full flex justify-center items-center mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[86px] px-4 md:px-6 lg:px-8 xl:px-0"
+        >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px] w-fit">
-            <div className="relative">
+            <motion.div variants={cardVariants} className="relative">
               <div className="relative h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] w-full md:w-[260px] lg:w-[320px] xl:w-[360px]">
                 <Image
                   src="/images/business-card-1.png"
@@ -156,10 +228,10 @@ const NewBusinessDevelopment = () => {
                   何から始めればいいかわからない...
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             {/* Card 2 */}
-            <div className="relative">
+            <motion.div variants={cardVariants} className="relative">
               <div className="relative h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] w-full md:w-[260px] lg:w-[320px] xl:w-[360px]">
                 <Image
                   src="/images/business-card-2.png"
@@ -178,10 +250,10 @@ const NewBusinessDevelopment = () => {
                   どこに頼めばいいのか不安...
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             {/* Card 3 */}
-            <div className="relative">
+            <motion.div variants={cardVariants} className="relative">
               <div className="relative h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] w-full md:w-[260px] lg:w-[320px] xl:w-[360px]">
                 <Image
                   src="/images/business-card-3.png"
@@ -200,28 +272,52 @@ const NewBusinessDevelopment = () => {
                   受け入れられるのか、確信が持てない...
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Support Message */}
-        <div className="flex flex-col items-center text-center mb-10 md:mb-12 lg:mb-14 xl:mb-16 px-4 md:px-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={fadeInUp}
+          className="flex flex-col items-center text-center mb-10 md:mb-12 lg:mb-14 xl:mb-16 px-4 md:px-6"
+        >
           <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl mb-3 md:mb-4`}>このような悩みを抱えているなら、</p>
           <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl`}>Del Quiがお手伝いできることがあります。</p>
 
           {/* Arrow Icon */}
-          <div className="h-[40px] md:h-[45px] xl:h-[50px] w-10 md:w-12 flex items-center justify-center relative my-6 md:my-7 xl:my-8">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="h-[40px] md:h-[45px] xl:h-[50px] w-10 md:w-12 flex items-center justify-center relative my-6 md:my-7 xl:my-8"
+          >
             <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer" />
-          </div>
-          <div className="text-center">
+          </motion.div>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center"
+          >
             <p className={`text-key-blue text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold ${notoSansJP.className} mb-3 md:mb-4`}>各専門分野のメンバー構成により、</p>
             <p className={`text-key-blue text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold ${notoSansJP.className}`}>新規事業に特化したシステム開発を得意としています。</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Lean Agile Development Section */}
         <div className="relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1290px] mb-[50px] md:mb-[60px] lg:mb-[65px] xl:mb-[70px] px-4 md:px-0">
-          <div className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute left-0 md:left-[10%] lg:left-[130px] top-0">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideInLeft}
+            className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute left-0 md:left-[10%] lg:left-[130px] top-0"
+          >
             <Image
               src="/images/lean-agile.png"
               alt="Lean Agile Development"
@@ -230,25 +326,43 @@ const NewBusinessDevelopment = () => {
               quality={100}
               className="w-full h-full object-contain"
             />
-          </div>
-          <div className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute right-0 md:right-[5%] lg:right-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start">
+          </motion.div>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideInRight}
+            className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute right-0 md:right-[5%] lg:right-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start"
+          >
             <h3 className={`text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-3 md:mb-4`}>リーン・アジャイル開発</h3>
             <p className={`text-normal-text font-normal text-sm md:text-base leading-relaxed ${notoSansJP.className}`}>
               リーンスタートアップに基づいたアジャイル開発で、初期投資を抑えながらの迅速なプロトタイプを制作。
               実際にユーザーに使ってもらい、その反応を分析することで課題や改善点を明確にします。
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* User Behavior Research Section */}
         <div className="w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1290px] relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[90px] px-4 md:px-0">
-          <div className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute left-0 md:left-[5%] lg:left-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start z-20">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideInLeft}
+            className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute left-0 md:left-[5%] lg:left-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start z-20"
+          >
             <h3 className={`text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-3 md:mb-4`}>ユーザー行動調査</h3>
             <p className={`text-normal-text font-normal text-sm md:text-base leading-relaxed ${notoSansJP.className}`}>
               ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
             </p>
-          </div>
-          <div className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute right-0 md:right-[10%] lg:right-[130px] top-0 z-10">
+          </motion.div>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideInRight}
+            className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute right-0 md:right-[10%] lg:right-[130px] top-0 z-10"
+          >
             <Image
               src="/images/user-behavior-research.png"
               alt="User Behavior Research"
@@ -257,16 +371,32 @@ const NewBusinessDevelopment = () => {
               quality={100}
               className="w-full h-full object-contain"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* Final Message Section */}
-        <div className="flex flex-col gap-2 justify-center items-center pb-40">
-          <p className={`text-white ${notoSansJP.className} font-bold text-2xl mb-4`}>私たちは、単なるシステム開発会社ではありません。</p>
-          <p className={`text-white ${notoSansJP.className} font-bold text-2xl mb-2`}>お客様のビジネスパートナーとして、</p>
-          <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>アイデアの具現化から、市場への投入、</p>
-          <p className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}>そしてその後のグロースまで、一貫してサポートいたします！</p>
-        </div>
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={staggerChildren}
+          className="flex flex-col gap-2 justify-center items-center pb-40"
+        >
+          <motion.p variants={fadeInUp} className={`text-white ${notoSansJP.className} font-bold text-2xl mb-4`}>私たちは、単なるシステム開発会社ではありません。</motion.p>
+          <motion.p variants={fadeInUp} className={`text-white ${notoSansJP.className} font-bold text-2xl mb-2`}>お客様のビジネスパートナーとして、</motion.p>
+          <motion.p 
+            variants={fadeInUp}
+            className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}
+          >
+            アイデアの具現化から、市場への投入、
+          </motion.p>
+          <motion.p 
+            variants={fadeInUp}
+            className={`text-key-blue text-[32px] font-bold ${notoSansJP.className}`}
+          >
+            そしてその後のグロースまで、一貫してサポートいたします！
+          </motion.p>
+        </motion.div>
 
         {/* Dotted Wave Background at bottom */}
         <div 
