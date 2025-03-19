@@ -122,9 +122,10 @@ export function MobileCompanyInformation() {
         ref={canvasRef} 
         className="w-full absolute inset-0 top-0 z-0 h-[600px]" />
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center px-5 pt-[430px]">
+      <div className="relative z-10 flex flex-col items-center px-5 
+      xsm:pt-[120%] pt-[430px]">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center mb-[74px]">
+        <div className="flex flex-col items-center justify-center text-center mb-10">
           <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
             企業情報
           </h1>
