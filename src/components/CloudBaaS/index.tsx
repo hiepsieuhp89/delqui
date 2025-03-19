@@ -4,7 +4,8 @@ import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { notoSansJP } from "@/fonts"
-export default function CloudBaaS() {
+
+export default function CloudBaaS({ isMobile = false }: { isMobile?: boolean }) {
   const [rotation, setRotation] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const [radius, setRadius] = useState(180)
@@ -53,11 +54,11 @@ export default function CloudBaaS() {
         setContainerSize(size)
         
         if (window.innerWidth <= 568) {
-          setRadius(size * 0.7)
+          setRadius((isMobile ? size * 0.7 + 10 : size * 0.7))
         } else if (window.innerWidth <= 768) {
-          setRadius(size * 0.5)
+          setRadius((isMobile ? size * 0.5 + 10 : size * 0.5))
         } else {
-          setRadius(size * 0.43) // Giá trị mặc định cho màn hình lớn hơn
+          setRadius((isMobile ? size * 0.43 + 10 : size * 0.43)) // Giá trị mặc định cho màn hình lớn hơn
         }
       }
     }
@@ -65,16 +66,19 @@ export default function CloudBaaS() {
     updateSize()
     window.addEventListener("resize", updateSize)
     return () => window.removeEventListener("resize", updateSize)
-  }, [])
+  }, [isMobile])
 
   // Animate rotation
   useEffect(() => {
+    // Don't animate if in mobile mode
+    if (isMobile) return;
+    
     const interval = setInterval(() => {
       setRotation((prev) => (prev + 0.1) % 360)
     }, 16) // ~60fps
 
     return () => clearInterval(interval)
-  }, [])
+  }, [isMobile])
 
   return (
     <div className="flex justify-center items-center transform
@@ -109,7 +113,7 @@ export default function CloudBaaS() {
           const centerY = containerSize / 2
 
           return (
-            <div key={index} className="absolute" style={{ zIndex: 20 }}>
+            <div key={index} className={`absolute ${isMobile ? "-left-5" : ""}`} style={{ zIndex: 20 }}>
               {/* Connecting line */}
               <motion.div
                 className="absolute z-10 origin-left h-[2px] dashed-line"

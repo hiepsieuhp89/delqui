@@ -1,9 +1,9 @@
 "use client"
 
-import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
 import CloudBaaS from "@/components/CloudBaaS"
 import { notoSansJP } from "@/fonts"
+import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
 
 export function MobileDevelopmentStructure() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -149,7 +149,7 @@ export function MobileDevelopmentStructure() {
         <div className="flex flex-col justify-start items-center px-5 bg-white h-auto pt-[70px] pb-[38px]"
           style={{ boxShadow: "0px 0px 20px 0px #00000033" }}>
           <div className="flex flex-col justify-between w-full gap-8">
-            <CloudBaaS />
+            <CloudBaaS isMobile={true} />
             <div className="w-full h-[1px] bg-[#B7B7B7] mt-8"></div>
             <div className="w-full h-[308px] min-h-[308px] relative">
               <Image
