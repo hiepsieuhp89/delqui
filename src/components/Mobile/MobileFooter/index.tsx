@@ -3,17 +3,16 @@
 import Link from "next/link"
 import { useCallback } from "react"
 import { notoSansJP } from "@/fonts"
+import { scroller } from "react-scroll"
 
 export function MobileFooter() {
   // Scroll to section function
   const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      window?.lenis?.scrollTo(element, {
-        offset: 0,
-        duration: 2.5,
-      })
-    }
+    scroller.scrollTo(sectionId, {
+      duration: 1500,
+      smooth: 'easeInOutQuint',
+      offset: 0
+    })
   }, [])
 
   return (

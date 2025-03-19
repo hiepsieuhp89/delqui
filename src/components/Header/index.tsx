@@ -3,16 +3,15 @@
 import Link from "next/link"
 import { Mail } from "lucide-react"
 import { notoSansJP } from "@/fonts"
+import { scroller } from "react-scroll"
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      window?.lenis?.scrollTo(element, {
-        offset: 0,
-        duration: 2.5,
-      })
-    }
+    scroller.scrollTo(sectionId, {
+      duration: 1500,
+      smooth: 'easeInOutQuint',
+      offset: 0
+    })
   }
 
   return (

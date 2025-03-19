@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Mail } from "lucide-react"
 import { notoSansJP } from "@/fonts"
+import { scroller } from 'react-scroll'
 
 
 export function MobileHeader() {
@@ -28,20 +29,12 @@ export function MobileHeader() {
 
     const scrollToSection = (sectionId: string) => {
         setIsMenuOpen(false)
-        const element = document.getElementById(sectionId)
-        if (element) {
-            if (window?.lenis?.scrollTo) {
-                window.lenis.scrollTo(element, {
-                    offset: 0,
-                    duration: 2.5,
-                })
-            } else {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                })
-            }
-        }
+        scroller.scrollTo(sectionId, {
+            duration: 1500,
+            smooth: true,
+            offset: 0,
+            spy: true
+        })
     }
 
     return (
