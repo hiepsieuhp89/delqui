@@ -241,7 +241,7 @@ export function MobileNewBusinessDevelopment() {
                         このような悩みを抱えているなら、
                     </p>
                     <p className={`w-full text-wrap break-words text-white ${notoSansJP.className} font-bold text-lg text-justify`}>
-                        DelQuiがお手伝いできることがあります。
+                        Del Quiがお手伝いできることがあります。
                     </p>
 
                     {/* Arrow */}

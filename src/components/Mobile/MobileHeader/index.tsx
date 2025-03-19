@@ -48,7 +48,7 @@ export function MobileHeader() {
         <header className="md:hidden bg-key-visual-required z-50 fixed top-0 left-0 right-0 p-5">
             <div className="w-full flex justify-between items-center">
                 <Link href="/" className="text-white font-bold text-[40px] leading-[100%]">
-                    DelQui
+                    Del Qui
                 </Link>
 
                 {/* Mobile menu button */}
@@ -78,7 +78,7 @@ export function MobileHeader() {
                             className={`text-white text-base ${notoSansJP.className} text-left font-bold`}
                             onClick={() => scrollToSection("about")}
                         >
-                            DelQuiについて
+                            Del Quiについて
                         </button>
                         <button
                             className={`text-white text-base ${notoSansJP.className} text-left font-bold`}

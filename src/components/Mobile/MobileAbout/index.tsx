@@ -39,7 +39,7 @@ export function MobileAbout() {
         animate={isVisible ? "visible" : "hidden"}
         variants={variants}
       >
-        <h1 className={`text-[32px] ${notoSansJP.className} font-bold text-main-blue`}>DelQuiについて</h1>
+        <h1 className={`text-[32px] ${notoSansJP.className} font-bold text-main-blue`}>Del Quiについて</h1>
         <div className="w-10 h-[1px] bg-main-blue mx-auto my-5"></div>
         <h2 className="text-base font-medium tracking-wider mb-10 text-main-blue">ABOUT</h2>
         <div className="flex flex-col gap-6 text-normal-text text-base">
@@ -57,7 +57,7 @@ export function MobileAbout() {
           </div>
 
           <p className={`${notoSansJP.className} leading-relaxed text-start text-sm font-normal`}>
-            DelQuiでは事業戦略から技術選定までトータルにサポート。
+            Del Quiでは事業戦略から技術選定までトータルにサポート。
           </p>
         </div>
       </motion.div>

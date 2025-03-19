@@ -22,7 +22,7 @@ export function MobileFooter() {
         {/* Logo */}
         <div className="flex justify-center mb-10">
           <Link href="/" className="text-[40px] font-bold tracking-tight text-white">
-            DelQui
+            Del Qui
           </Link>
         </div>
 
@@ -33,7 +33,7 @@ export function MobileFooter() {
               onClick={() => scrollToSection('about')} 
               className="text-base font-bold hover:text-key-visual-copy transition-colors"
             >
-              DelQuiについて
+              Del Quiについて
             </button>
             
             <button 
@@ -70,7 +70,7 @@ export function MobileFooter() {
 
         {/* Copyright */}
         <div className="text-center">
-          <p className="text-sm font-medium">© 2025 DelQui</p>
+          <p className="text-sm font-medium">© 2025 Del Qui</p>
         </div>
       </div>
     </footer>

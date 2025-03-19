@@ -38,7 +38,7 @@ const About = () => {
           animate={isVisible ? "visible" : "hidden"}
           variants={variants}
         >
-          <h1 className={`text-3xl md:text-4xl lg:text-4xl xl:text-5xl ${notoSansJP.className} font-bold text-main-blue`}>DelQuiについて</h1>
+          <h1 className={`text-3xl md:text-4xl lg:text-4xl xl:text-5xl ${notoSansJP.className} font-bold text-main-blue`}>Del Quiについて</h1>
           <div className="w-8 md:w-10 lg:w-12 h-0.5 bg-main-blue mx-auto my-4 md:my-5 lg:my-6"></div>
           <h2 className="text-base md:text-lg font-poppins text-main-blue font-medium tracking-wider mb-6 md:mb-8 lg:mb-10">ABOUT</h2>
 
@@ -57,7 +57,7 @@ const About = () => {
             </div>
 
             <p className={`${notoSansJP.className} leading-relaxed`}>
-              DelQuiでは事業戦略から技術選定までトータルにサポート。
+              Del Quiでは事業戦略から技術選定までトータルにサポート。
             </p>
           </div>
         </motion.div>

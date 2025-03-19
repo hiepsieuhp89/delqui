@@ -207,7 +207,7 @@ const NewBusinessDevelopment = () => {
         {/* Support Message */}
         <div className="flex flex-col items-center text-center mb-10 md:mb-12 lg:mb-14 xl:mb-16 px-4 md:px-6">
           <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl mb-3 md:mb-4`}>このような悩みを抱えているなら、</p>
-          <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl`}>DelQuiがお手伝いできることがあります。</p>
+          <p className={`text-white ${notoSansJP.className} font-bold text-xl md:text-2xl`}>Del Quiがお手伝いできることがあります。</p>
 
           {/* Arrow Icon */}
           <div className="h-[40px] md:h-[45px] xl:h-[50px] w-10 md:w-12 flex items-center justify-center relative my-6 md:my-7 xl:my-8">

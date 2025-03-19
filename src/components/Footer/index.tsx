@@ -21,14 +21,14 @@ export default function Footer() {
           {/* Logo */}
           <div>
             <Link href="/" className="text-3xl md:text-4xl lg:text-5xl xl:text-[52px] font-bold tracking-tight text-white">
-              DelQui
+              Del Qui
             </Link>
           </div>
 
           {/* Navigation */}
           <nav className={`flex flex-wrap justify-center gap-x-4 md:gap-x-5 lg:gap-x-6 xl:gap-x-8 gap-y-4 text-sm md:text-base font-bold md:justify-end ${notoSansJP.className}`}>
             <button onClick={() => scrollToSection('about')} className="hover:text-key-visual-copy transition-colors">
-              DelQuiについて
+              Del Quiについて
             </button>
             <button onClick={() => scrollToSection('business')} className="hover:text-key-visual-copy transition-colors">
               新規事業開発
@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
         {/* Copyright */}
         <div className="mt-8 md:mt-10 lg:mt-12 xl:mt-[50px]">
-          <p className="text-sm md:text-base font-medium font-poppins">© 2025 DelQui</p>
+          <p className="text-sm md:text-base font-medium font-poppins">© 2025 Del Qui</p>
         </div>
       </div>
     </footer>

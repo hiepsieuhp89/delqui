@@ -99,7 +99,7 @@ export default function Home() {
       <Header />
       <Banner />
       <section id="about">
-        <About /> {/* DelQuiについて */}
+        <About /> {/* Del Quiについて */}
       </section>
       <section id="business">
         <NewBusinessDevelopment /> {/* 新規事業開発 */}

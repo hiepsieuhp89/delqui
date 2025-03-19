@@ -19,7 +19,7 @@ const Header = () => {
     <header className="bg-key-visual-required z-10 p-[20px] md:p-[25px] lg:p-[28px] xl:p-[30px] md:pl-4">
       <div className="w-full flex justify-between items-center">
         <Link href="/" className="text-white font-bold text-[36px] md:text-[40px] lg:text-[46px] xl:text-[52px] font-poppins leading-[100%]">
-          DelQui
+          Del Qui
         </Link>
       
         {/* Desktop Navigation */}
@@ -28,7 +28,7 @@ const Header = () => {
             onClick={() => scrollToSection('about')} 
             className={`text-white ${notoSansJP.className} font-bold md:text-base lg:text-base xl:text-lg hover:text-key-visual-copy transition-colors`}
           >
-            DelQuiについて
+            Del Quiについて
           </button>
           <button 
             onClick={() => scrollToSection('business')} 
