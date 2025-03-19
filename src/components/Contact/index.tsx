@@ -17,25 +17,48 @@ export default function Contact() {
     message: "",
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
-    console.log("Form submitted:", formData)
-    // Reset form after submission
-    setFormData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      message: "",
-    })
-    setIsSubmitted(true)
+    setIsSubmitting(true)
+    setError("")
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message || 'メール送信に失敗しました。')
+      }
+      
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        message: "",
+      })
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error('Email sending error:', err)
+      setError(err instanceof Error ? err.message : 'メール送信に失敗しました。')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -72,6 +95,12 @@ export default function Contact() {
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
+            {error && (
+              <div className="mb-5 p-3 bg-red-100 text-red-700 rounded border border-red-300">
+                {error}
+              </div>
+            )}
+            
             <div className="mb-[18px] md:mb-[20px] lg:mb-[22px]">
               <Label htmlFor="name" className="mb-1 md:mb-2 block">
                 お名前
@@ -152,9 +181,10 @@ export default function Contact() {
             <div className="flex justify-center">
               <Button
                 type="submit"
-                className="h-12 md:h-12 lg:h-14 w-48 md:w-56 lg:w-64 rounded-full bg-[#2B5D8E] text-base md:text-lg font-medium text-white hover:bg-main-blue"
+                disabled={isSubmitting}
+                className={`h-12 md:h-12 lg:h-14 w-48 md:w-56 lg:w-64 rounded-full bg-[#2B5D8E] text-base md:text-lg font-medium text-white hover:bg-main-blue ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                送信する
+                {isSubmitting ? '送信中...' : '送信する'}
               </Button>
             </div>
           </form>
