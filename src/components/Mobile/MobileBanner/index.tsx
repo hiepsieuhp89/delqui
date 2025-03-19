@@ -33,7 +33,7 @@ export function MobileBanner() {
             <h1 className={`w-full text-[34px] ${notoSansJP.className} font-bold leading-tight text-start`}>「すべての人」に</h1>
             <h1 className={`w-full text-[34px] ${notoSansJP.className} font-bold leading-tight text-start`}>ソフトウェア事業を。</h1>
           </div>
-          <p className={`${allison.className} text-[#f8d57e] text-[40px] transform -rotate-[8deg] -mt-4`}
+          <p className={`${allison.className} text-key-visual-copy text-[40px] transform -rotate-[8deg] -mt-4`}
           >
             Software Business
             <br />

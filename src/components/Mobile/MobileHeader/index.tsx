@@ -30,10 +30,17 @@ export function MobileHeader() {
         setIsMenuOpen(false)
         const element = document.getElementById(sectionId)
         if (element) {
-            window?.lenis?.scrollTo(element, {
-                offset: 0,
-                duration: 2.5,
-            })
+            if (window?.lenis?.scrollTo) {
+                window.lenis.scrollTo(element, {
+                    offset: 0,
+                    duration: 2.5,
+                })
+            } else {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })
+            }
         }
     }
 

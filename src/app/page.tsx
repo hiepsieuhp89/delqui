@@ -33,24 +33,22 @@ export default function Home() {
     
     window.addEventListener('resize', checkScreenSize);
 
-    // Chỉ khởi tạo Lenis khi không phải là giao diện di động
+    // Khởi tạo Lenis cho tất cả các thiết bị
     let lenis: any = null;
-    if (!isMobile) {
-      lenis = new Lenis({
-        lerp: 0.07,
-        duration: 2.5,
-        // smoothTouch: true
-      })
+    lenis = new Lenis({
+      lerp: 0.07,
+      duration: 2.5,
+      // smoothTouch: true  // Bật tính năng smooth touch cho thiết bị di động
+    })
 
-      window.lenis = lenis
+    window.lenis = lenis
 
-      const raf = (time: number) => {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
-      
+    const raf = (time: number) => {
+      lenis.raf(time)
       requestAnimationFrame(raf)
     }
+    
+    requestAnimationFrame(raf)
 
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > window.innerHeight);
@@ -66,7 +64,7 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkScreenSize);
     }
-  }, [isMobile]) // Thêm isMobile vào dependencies để useEffect chạy lại khi có thay đổi
+  }, []) // Đã xoá isMobile từ dependencies vì Lenis sẽ hoạt động trên mọi thiết bị
 
   const scrollToTop = () => {
     window.lenis?.scrollTo(0, { duration: 1.5 });
