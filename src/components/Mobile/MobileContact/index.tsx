@@ -16,6 +16,7 @@ export function MobileContact() {
     phone: "",
     message: "",
   })
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -34,6 +35,7 @@ export function MobileContact() {
       phone: "",
       message: "",
     })
+    setIsSubmitted(true)
   }
 
   return (
@@ -60,102 +62,111 @@ export function MobileContact() {
           </p>
         </div>
 
-        {/* Introduction text */}
-        <div className="mb-10 text-justify text-normal-text">
-          <p className={`mb-2 text-base !font-normal ${notoSansJP.className}`}>
-            お客様の状況に合わせた最適なプランをご提案しております。
-          </p>
-          <p className={`text-base !font-normal ${notoSansJP.className}`}>まずはお気軽にお問い合わせください。</p>
-        </div>
-
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="mb-5">
-            <Label htmlFor="name" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
-              お名前
-              <span className="ml-1 text-key-visual-required">※</span>
-            </Label>
-            <Input
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="h-12 w-full rounded border border-form-list-border bg-white"
-            />
+        {/* Introduction text - Only show when not submitted */}
+        {!isSubmitted && (
+          <div className="mb-10 text-justify text-normal-text">
+            <p className={`mb-2 text-base !font-normal ${notoSansJP.className}`}>
+              お客様の状況に合わせた最適なプランをご提案しております。
+            </p>
+            <p className={`text-base !font-normal ${notoSansJP.className}`}>
+              まずはお気軽にお問い合わせください。
+            </p>
           </div>
+        )}
 
-          <div className="mb-5">
-            <Label htmlFor="company" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
-              会社名
-              <span className="ml-1 text-key-visual-required">※</span>
-            </Label>
-            <Input
-              id="company"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              required
-              className="h-12 w-full rounded border border-form-list-border bg-white"
-            />
+        {isSubmitted ? (
+          <div className={`text-center text-xl font-bold text-main-blue mb-8 ${notoSansJP.className}`}>
+            送信を完了しました。
           </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="w-full">
+            <div className="mb-5">
+              <Label htmlFor="name" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
+                お名前
+                <span className="ml-1 text-key-visual-required">※</span>
+              </Label>
+              <Input
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="h-12 w-full rounded border border-form-list-border bg-white"
+              />
+            </div>
 
-          <div className="mb-5">
-            <Label htmlFor="email" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
-              メールアドレス
-              <span className="ml-1 text-key-visual-required">※</span>
-            </Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="h-12 w-full rounded border border-form-list-border bg-white"
-            />
-          </div>
+            <div className="mb-5">
+              <Label htmlFor="company" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
+                会社名
+                <span className="ml-1 text-key-visual-required">※</span>
+              </Label>
+              <Input
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                required
+                className="h-12 w-full rounded border border-form-list-border bg-white"
+              />
+            </div>
 
-          <div className="mb-5">
-            <Label htmlFor="phone" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
-              電話番号
-              <span className="ml-1 text-key-visual-required">※</span>
-            </Label>
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="h-12 w-full rounded border border-form-list-border bg-white"
-            />
-          </div>
+            <div className="mb-5">
+              <Label htmlFor="email" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
+                メールアドレス
+                <span className="ml-1 text-key-visual-required">※</span>
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="h-12 w-full rounded border border-form-list-border bg-white"
+              />
+            </div>
 
-          <div className="mb-8">
-            <Label htmlFor="message" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
-              お問い合わせ内容
-              <span className="ml-1 text-key-visual-required">※</span>
-            </Label>
-            <Textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="min-h-[150px] w-full rounded border border-form-list-border bg-white"
-            />
-          </div>
+            <div className="mb-5">
+              <Label htmlFor="phone" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
+                電話番号
+                <span className="ml-1 text-key-visual-required">※</span>
+              </Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="h-12 w-full rounded border border-form-list-border bg-white"
+              />
+            </div>
 
-          <div className="flex justify-center">
-            <Button
-              type="submit"
-              className={`h-[60px] w-[256px] rounded-full bg-[#2B5D8E] text-base font-bold text-white hover:bg-main-blue ${notoSansJP.className}`}
-            >
-              送信する
-            </Button>
-          </div>
-        </form>
+            <div className="mb-8">
+              <Label htmlFor="message" className={`mb-3 block text-base !font-normal ${notoSansJP.className}`}>
+                お問い合わせ内容
+                <span className="ml-1 text-key-visual-required">※</span>
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="min-h-[150px] w-full rounded border border-form-list-border bg-white"
+              />
+            </div>
+
+            <div className="flex justify-center">
+              <Button
+                type="submit"
+                className={`h-[60px] w-[256px] rounded-full bg-[#2B5D8E] text-base font-bold text-white hover:bg-main-blue ${notoSansJP.className}`}
+              >
+                送信する
+              </Button>
+            </div>
+          </form>
+        )}
       </div>
     </section>
   )
