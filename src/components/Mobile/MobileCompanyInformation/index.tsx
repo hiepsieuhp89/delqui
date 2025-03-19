@@ -81,11 +81,15 @@ export function MobileCompanyInformation() {
         particle.y += particle.speedY
 
         // Keep particles within canvas (bounce effect)
-        if (particle.x < 0 || particle.x > canvas.width) {
-          particle.speedX = -particle.speedX
+        if (particle.x - particle.radius < 0 || particle.x + particle.radius > canvas.width) {
+          particle.speedX = -particle.speedX;
+          // Điều chỉnh vị trí để hạt không bị kẹt ngoài rìa
+          particle.x = particle.x - particle.radius < 0 ? particle.radius : canvas.width - particle.radius;
         }
-        if (particle.y < 0 || particle.y > canvas.height) {
-          particle.speedY = -particle.speedY
+        if (particle.y - particle.radius < 0 || particle.y + particle.radius > canvas.height) {
+          particle.speedY = -particle.speedY;
+          // Điều chỉnh vị trí để hạt không bị kẹt ngoài rìa
+          particle.y = particle.y - particle.radius < 0 ? particle.radius : canvas.height - particle.radius;
         }
 
         // Draw connections between particles

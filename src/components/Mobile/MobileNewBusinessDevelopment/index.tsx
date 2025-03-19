@@ -86,10 +86,19 @@ export function MobileNewBusinessDevelopment() {
                 particle.y += particle.speedY
 
                 // Keep particles within canvas (bounce effect)
-                if (particle.x < 0 || particle.x > canvas.width) {
+                if (particle.x - particle.radius < 0) {
+                    particle.x = particle.radius
+                    particle.speedX = -particle.speedX
+                } else if (particle.x + particle.radius > canvas.width) {
+                    particle.x = canvas.width - particle.radius
                     particle.speedX = -particle.speedX
                 }
-                if (particle.y < 0 || particle.y > canvas.height) {
+                
+                if (particle.y - particle.radius < 0) {
+                    particle.y = particle.radius
+                    particle.speedY = -particle.speedY
+                } else if (particle.y + particle.radius > canvas.height) {
+                    particle.y = canvas.height - particle.radius
                     particle.speedY = -particle.speedY
                 }
 

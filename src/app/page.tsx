@@ -80,6 +80,16 @@ export default function Home() {
         <MobileCompanyInformation /> {/* 企業情報 */}
         <MobileContact /> {/* お問い合わせ */}
         <MobileFooter /> {/* フッター */}
+        <div 
+        className={`fixed bottom-0 right-4 bg-transparent cursor-pointer z-50 transition-opacity duration-200 ease-in-out ${
+          showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={scrollToTop}
+      >
+        <div className="h-10 w-10 flex items-center justify-center relative my-4 rotate-[180deg]">
+          <Image src="/images/arrow.png" alt="Arrow Icon" fill draggable={false} quality={100} className="h-full w-full object-contain cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:translate-y-1 duration-300" />
+        </div>
+      </div>
       </main>
     );
   }
