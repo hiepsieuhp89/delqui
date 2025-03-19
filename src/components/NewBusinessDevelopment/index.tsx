@@ -149,10 +149,10 @@ const NewBusinessDevelopment = () => {
                 />
               </div>
               <div className="absolute -left-2 md:-left-3 xl:-left-4 -bottom-2 md:-bottom-3 xl:-bottom-4 right-0 flex flex-col gap-1 md:gap-2">
-                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-sm text-nowrap xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   アイデアはあるけど、
                 </div>
-                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-sm text-nowrap xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   何から始めればいいかわからない...
                 </div>
               </div>
@@ -171,10 +171,10 @@ const NewBusinessDevelopment = () => {
                 />
               </div>
               <div className="absolute -left-2 md:-left-3 xl:-left-4 -bottom-2 md:-bottom-3 xl:-bottom-4 right-0 flex flex-col gap-1 md:gap-2">
-                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-sm text-nowrap xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   システム開発の知識がないので、
                 </div>
-                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-sm text-nowrap xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   どこに頼めばいいのか不安...
                 </div>
               </div>
@@ -193,10 +193,10 @@ const NewBusinessDevelopment = () => {
                 />
               </div>
               <div className="absolute -left-2 md:-left-3 xl:-left-4 -bottom-2 md:-bottom-3 xl:-bottom-4 right-0 flex flex-col gap-1 md:gap-2">
-                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-sm text-nowrap xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   本当にこのアイデアが市場に
                 </div>
-                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-base md:text-lg xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
+                <div className={`h-7 md:h-8 xl:h-9 px-1 py-1 md:py-2 flex items-center justify-start font-bold text-normal-text text-sm text-nowrap xl:text-xl bg-white w-fit ${notoSansJP.className}`}>
                   受け入れられるのか、確信が持てない...
                 </div>
               </div>

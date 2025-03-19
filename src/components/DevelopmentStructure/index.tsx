@@ -19,7 +19,7 @@ export default function DevelopmentStructure() {
       const parent = canvas.parentElement
       if (parent) {
         canvas.width = parent.offsetWidth
-        canvas.height = parent.offsetHeight // Loại bỏ giới hạn 600px để canvas lấp đầy container
+        canvas.height = parent.offsetHeight
       }
     }
 
@@ -82,10 +82,19 @@ export default function DevelopmentStructure() {
         particle.y += particle.speedY
 
         // Giữ hạt trong canvas (hiệu ứng bounce)
-        if (particle.x < 0 || particle.x > canvas.width) {
+        if (particle.x - particle.radius < 0) {
+          particle.x = particle.radius
+          particle.speedX = -particle.speedX
+        } else if (particle.x + particle.radius > canvas.width) {
+          particle.x = canvas.width - particle.radius
           particle.speedX = -particle.speedX
         }
-        if (particle.y < 0 || particle.y > canvas.height) {
+        
+        if (particle.y - particle.radius < 0) {
+          particle.y = particle.radius
+          particle.speedY = -particle.speedY
+        } else if (particle.y + particle.radius > canvas.height) {
+          particle.y = canvas.height - particle.radius
           particle.speedY = -particle.speedY
         }
 
@@ -116,9 +125,8 @@ export default function DevelopmentStructure() {
     }
   }, [])
   return (
-    <div className="flex flex-col items-center justify-center relative bg-sub-blue overflow-hidden">
-      {/* Nền hiệu ứng hạt sử dụng canvas - Đã sửa CSS cho canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-10" style={{ height: '80%', width: 'auto' }} />
+    <div className="flex flex-col items-center justify-center relative !bg-transparent overflow-y-visible">
+      <canvas ref={canvasRef} className="absolute inset-0 z-10" style={{ height: '92%', width: "100%" }} />
       <div
         style={{
           backgroundImage: "url('/images/development-structure-background.png')",

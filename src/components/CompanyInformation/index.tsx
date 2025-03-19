@@ -4,7 +4,7 @@ import { notoSansJP } from "@/fonts"
 export default function CompanyInformation() {
 
   return (
-    <div className={`relative z-50 w-full bg-sub-blue text-white -mt-[350px] ${notoSansJP.className}`}>
+    <div className={`relative z-50 w-full bg-transparent text-white -mt-[350px] ${notoSansJP.className}`}>
       {/* Content container */}
       <div className="relative mx-auto max-w-full px-4 py-12 md:py-14 md:px-6 lg:py-16 lg:px-8 xl:max-w-4xl" style={{ zIndex: 2 }}>
         {/* Header Section */}
