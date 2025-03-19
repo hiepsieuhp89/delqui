@@ -14,27 +14,33 @@ export default function CloudBaaS({ isMobile = false }: { isMobile?: boolean }) 
   const icons = [
     {
       imagePath: "/images/basS-icon1.png",
-      label: "ユーザー登録・招待",
+      label: "ユーザー登録・",
+      label2: "招待",
     },
     {
       imagePath: "/images/basS-icon2.png",
       label: "ログイン",
+      label2: "",
     },
     {
       imagePath: "/images/basS-icon3.png",
-      label: "データアクセス管理",
+      label: "データ",
+      label2: "アクセス管理",
     },
     {
       imagePath: "/images/basS-icon4.png",
       label: "DM機能",
+      label2: "",
     },
     {
       imagePath: "/images/basS-icon5.png",
-      label: "サーバー・ネットワーク",
+      label: "サーバー・",
+      label2: "ネットワーク",
     },
     {
       imagePath: "/images/basS-icon6.png",
-      label: "独自の高性能アクセスログ",
+      label: "独自の高性能",
+      label2: "アクセスログ",
     },
   ]
 
@@ -103,7 +109,7 @@ export default function CloudBaaS({ isMobile = false }: { isMobile?: boolean }) 
                 className="object-contain h-full w-full select-none"
                 draggable={false}
               />
-              <h1 className="select-none absolute bottom-4 md:bottom-5 lg:bottom-6 xl:bottom-7 z-50 text-[#295A99] font-poppins text-lg md:text-xl lg:text-2xl xl:text-[28px] font-bold">BasS</h1>
+              <h1 className="select-none absolute bottom-4 md:bottom-5 lg:bottom-6 xl:bottom-7 z-50 text-[#295A99] font-poppins text-lg md:text-xl lg:text-2xl xl:text-[28px] font-bold">BaaS</h1>
             </div>
           </div>
 
@@ -151,7 +157,8 @@ export default function CloudBaaS({ isMobile = false }: { isMobile?: boolean }) 
                         />
                       </div>
                     </div>
-                    <div className={`mt-1 md:mt-1.5 lg:mt-2 xl:mt-2 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] w-[96px] ${notoSansJP.className}`}>{item.label}</div>
+                    <div className={`mt-1 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] text-nowrap ${notoSansJP.className}`}>{item.label}</div>
+                    <div className={`-mt-1 text-center text-xs md:text-sm lg:text-base xl:text-base font-bold text-[#234C81] text-nowrap ${notoSansJP.className}`}>{item.label2}</div>
                   </div>
                 </motion.div>
               </div>
