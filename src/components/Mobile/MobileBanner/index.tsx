@@ -11,11 +11,11 @@ export function MobileBanner() {
 
   useEffect(() => {
     setIsLoaded(true)
-    
+
     document.fonts.ready.then(() => {
       if (document.fonts.check('1em Allison')) {
         setFontLoaded(true);
-      } 
+      }
     });
   }, [])
 
@@ -30,7 +30,12 @@ export function MobileBanner() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="w-full flex flex-col gap-4 items-start">
-            <h1 className={`w-full text-[34px] ${notoSansJP.className} font-bold leading-tight text-start`}>「すべての人」に</h1>
+            <h1 className={`w-full text-[34px] -ml-4 ${notoSansJP.className} font-bold leading-tight text-start`}>
+              <span className="font-thin">「</span>
+              <span className="font-bold">すべての人</span>
+              <span className="font-thin">」</span>
+              <span className="font-bold -ml-5">に</span>
+            </h1>
             <h1 className={`w-full text-[34px] ${notoSansJP.className} font-bold leading-tight text-start`}>ソフトウェア事業を。</h1>
           </div>
           <p className={`${allison.className} text-key-visual-copy text-[40px] transform -rotate-[8deg] -mt-4`}
@@ -43,15 +48,15 @@ export function MobileBanner() {
 
         {/* Banner image */}
         <Image
-            src="/images/lightbulbs.png"
-            alt="Light bulbs with one glowing idea bulb"
-            height={400}
-            width={400}
-            quality={100}
-            draggable={false}
-            className="object-contain h-[292px] w-full mb-[200px]"
-            priority
-          />
+          src="/images/lightbulbs.png"
+          alt="Light bulbs with one glowing idea bulb"
+          height={400}
+          width={400}
+          quality={100}
+          draggable={false}
+          className="object-contain h-[292px] w-full mb-[200px]"
+          priority
+        />
       </div>
     </div>
   )

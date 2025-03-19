@@ -30,10 +30,13 @@ const Banner = () => {
         >
           <div className="flex flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-10">
             <h1
-              className={`text-4xl md:text-4xl lg:text-5xl xl:text-[66px] ${notoSansJP.className} select-none font-bold leading-tight text-start -pl-10`}
+              className={`text-4xl md:text-4xl lg:text-5xl xl:text-[66px] ${notoSansJP.className} select-none leading-tight font-bold text-start -pl-10`}
               style={{ letterSpacing: "3%" }}
             >
-              「すべての人」に
+              <span className="font-thin">「</span>
+              <span className="font-bold">すべての人</span>
+              <span className="font-thin">」</span>
+              <span className="font-bold -ml-6">に</span>
             </h1>
             <h1
               className={`
