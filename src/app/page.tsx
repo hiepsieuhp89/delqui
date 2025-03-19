@@ -1,28 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react'
-import Lenis from 'lenis'
-import Image from 'next/image'
-import Header from "@/components/Header/index"
-import Banner from "@/components/Banner/index"
-import About from "@/components/About/index"
-import NewBusinessDevelopment from "@/components/NewBusinessDevelopment"
-import DevelopmentStructure from "@/components/DevelopmentStructure"
-import CompanyInformation from "@/components/CompanyInformation"
-import Contact from "@/components/Contact"
-import Footer from "@/components/Footer"
-import {MobileHeader} from "@/components/Mobile/MobileHeader"
-import {MobileBanner} from "@/components/Mobile/MobileBanner"
-import { MobileAbout } from '@/components/Mobile/MobileAbout';
-import { MobileNewBusinessDevelopment } from '@/components/Mobile/MobileNewBusinessDevelopment';
-import { MobileDevelopmentStructure } from '@/components/Mobile/MobileDevelopmentStructure';
+import About from "@/components/About/index";
+import Banner from "@/components/Banner/index";
+import CompanyInformation from "@/components/CompanyInformation";
+import Contact from "@/components/Contact";
+import DevelopmentStructure from "@/components/DevelopmentStructure";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header/index";
+import { MobileBanner } from "@/components/Mobile/MobileBanner";
 import { MobileCompanyInformation } from '@/components/Mobile/MobileCompanyInformation';
 import { MobileContact } from '@/components/Mobile/MobileContact';
+import { MobileDevelopmentStructure } from '@/components/Mobile/MobileDevelopmentStructure';
 import { MobileFooter } from '@/components/Mobile/MobileFooter';
+import { MobileHeader } from "@/components/Mobile/MobileHeader";
+import { MobileNewBusinessDevelopment } from '@/components/Mobile/MobileNewBusinessDevelopment';
+import NewBusinessDevelopment from "@/components/NewBusinessDevelopment";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [smoothScroll, setSmoothScroll] = useState(true);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -33,22 +33,16 @@ export default function Home() {
     
     window.addEventListener('resize', checkScreenSize);
 
-    // Khởi tạo Lenis cho tất cả các thiết bị
-    let lenis: any = null;
-    lenis = new Lenis({
-      lerp: 0.07,
-      duration: 2.5,
-      // smoothTouch: true  // Bật tính năng smooth touch cho thiết bị di động
-    })
+    // Initialize react-scroll
+    Events.scrollEvent.register('begin', function() {
+      // console.log("begin", arguments);
+    });
 
-    window.lenis = lenis
+    Events.scrollEvent.register('end', function() {
+      // console.log("end", arguments);
+    });
 
-    const raf = (time: number) => {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    
-    requestAnimationFrame(raf)
+    scrollSpy.update();
 
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > window.innerHeight);
@@ -57,17 +51,18 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      if (lenis) {
-        lenis.destroy()
-        window.lenis = undefined
-      }
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkScreenSize);
     }
-  }, []) // Đã xoá isMobile từ dependencies vì Lenis sẽ hoạt động trên mọi thiết bị
+  }, []);
 
   const scrollToTop = () => {
-    window.lenis?.scrollTo(0, { duration: 1.5 });
+    scroll.scrollToTop({
+      duration: smoothScroll ? 1500 : 0,
+      smooth: smoothScroll ? 'easeInOutQuint' : false
+    });
   };
 
   if (isMobile) {
@@ -98,21 +93,21 @@ export default function Home() {
     <main className="bg-sub-blue">
       <Header />
       <Banner />
-      <section id="about">
+      <Element name="about" className="element">
         <About /> {/* Del Quiについて */}
-      </section>
-      <section id="business">
+      </Element>
+      <Element name="business" className="element">
         <NewBusinessDevelopment /> {/* 新規事業開発 */}
-      </section>
-      <section id="development">
+      </Element>
+      <Element name="development" className="element">
         <DevelopmentStructure /> {/* 開発体制 */}
-      </section>
-      <section id="company">
+      </Element>
+      <Element name="company" className="element">
         <CompanyInformation /> {/* 企業情報 */}
-      </section>
-      <section id="contact">
+      </Element>
+      <Element name="contact" className="element">
         <Contact /> {/* お問い合わせ */}
-      </section>
+      </Element>
       <Footer />
       
       <div 
