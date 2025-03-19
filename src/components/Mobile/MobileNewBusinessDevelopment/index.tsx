@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { notoSansJP } from "@/fonts"
 import { MobileAbout } from "../MobileAbout"
+import { motion } from "framer-motion"
 
 export function MobileNewBusinessDevelopment() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -129,6 +130,41 @@ export function MobileNewBusinessDevelopment() {
         }
     }, [])
 
+    // Animation variants
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 40 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { 
+                duration: 0.6, 
+                ease: "easeOut" 
+            }
+        }
+    }
+
+    const staggerChildren = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15
+            }
+        }
+    }
+
+    const cardVariants = {
+        hidden: { opacity: 0, scale: 0.9 },
+        visible: { 
+            opacity: 1, 
+            scale: 1,
+            transition: { 
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    }
+
     return (
         <section className="md:hidden relative w-full bg-sub-blue" id="business">
             <MobileAbout />
@@ -138,7 +174,13 @@ export function MobileNewBusinessDevelopment() {
             {/* Main Content */}
             <div className="relative z-10 flex flex-col items-center pb-20 -mt-20">
                 {/* Header Section */}
-                <div className="flex flex-col items-center justify-center text-center mb-10">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.4 }}
+                    variants={fadeInUp}
+                    className="flex flex-col items-center justify-center text-center mb-10"
+                >
                     <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
                         アプリ開発
                         <br />
@@ -152,12 +194,18 @@ export function MobileNewBusinessDevelopment() {
                     <p className={`font-poppins text-base font-medium tracking-wider text-white uppercase`}>
                         NEW BUSINESS DEVELOPMENT
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Three Cards Section */}
-                <div className="w-full flex flex-col gap-9 mb-[50px] px-11">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={staggerChildren}
+                    className="w-full flex flex-col gap-9 mb-[50px] px-11"
+                >
                     {/* Card 1 */}
-                    <div className="relative">
+                    <motion.div variants={cardVariants} className="relative">
                         <div className="relative min-h-[236px] w-full">
                             <Image
                                 src="/images/business-card-1.png"
@@ -180,10 +228,10 @@ export function MobileNewBusinessDevelopment() {
                                 何から始めればいいかわからない...
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Card 2 */}
-                    <div className="relative">
+                    <motion.div variants={cardVariants} className="relative">
                         <div className="relative min-h-[236px] w-full">
                             <Image
                                 src="/images/business-card-2.png"
@@ -206,10 +254,10 @@ export function MobileNewBusinessDevelopment() {
                                 どこに頼めばいいのか不安...
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Card 3 */}
-                    <div className="relative">
+                    <motion.div variants={cardVariants} className="relative">
                         <div className="relative min-h-[236px] w-full">
                             <Image
                                 src="/images/business-card-3.png"
@@ -232,11 +280,17 @@ export function MobileNewBusinessDevelopment() {
                                 受け入れられるのか、確信が持てない...
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Support Message */}
-                <div className="flex flex-col px-5 items-center text-center mb-[50px]">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.4 }}
+                    variants={fadeInUp}
+                    className="flex flex-col px-5 items-center text-center mb-[50px]"
+                >
                     <p className={`w-full text-wrap break-words text-white ${notoSansJP.className} font-bold text-lg mb-2 text-justify`}>
                         このような悩みを抱えているなら、
                     </p>
@@ -245,7 +299,13 @@ export function MobileNewBusinessDevelopment() {
                     </p>
 
                     {/* Arrow */}
-                    <div className="flex justify-center my-[30px]">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                        className="flex justify-center my-[30px]"
+                    >
                         <div className="relative h-10 w-10">
                             <Image
                                 src="/images/arrow.png"
@@ -256,20 +316,32 @@ export function MobileNewBusinessDevelopment() {
                                 className="object-contain h-full w-full"
                             />
                         </div>
-                    </div>
-                    <div className="text-center">
+                    </motion.div>
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="text-center"
+                    >
                         <p className={`text-key-blue text-[22px] font-bold text-justify ${notoSansJP.className} mb-2`}>
                             各専門分野のメンバー構成により、
                         </p>
                         <p className={`text-key-blue text-[22px] font-bold text-justify ${notoSansJP.className}`}>
                             新規事業に特化したシステム開発を得意としています。
                         </p>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Lean Agile Development Section */}
                 <div className="w-full flex flex-col items-center">
-                    <div className="relative min-h-[232px] w-full">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 0.6 }}
+                        className="relative min-h-[232px] w-full"
+                    >
                         <Image
                             src="/images/lean-agile.png"
                             alt="Lean Agile Development"
@@ -278,19 +350,33 @@ export function MobileNewBusinessDevelopment() {
                             quality={100}
                             className="w-full h-full object-cover"
                         />
-                    </div>
-                    <div className="bg-white p-5 pt-[30px] pb-6 w-[90%] -translate-y-[40px]">
-                        <h3 className={`text-xl font-bold ${notoSansJP.className} text-main-blue mb-6`}>リーン・アジャイル開発</h3>
-                        <p className={`text-normal-text text-justify font-normal text-base leading-relaxed ${notoSansJP.className}`}>
-                            リーンスタートアップに基づいたアジャイル開発で、初期投資を抑えながらの迅速なプロトタイプを制作。
-                            実際にユーザーに使ってもらい、その反応を分析することで課題や改善点を明確にします。
-                        </p>
+                    </motion.div>
+                    <div className="-translate-y-[40px] flex justify-center">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="bg-white p-5 pt-[30px] pb-6 w-[90%]"
+                        >
+                            <h3 className={`text-xl font-bold ${notoSansJP.className} text-main-blue mb-6`}>リーン・アジャイル開発</h3>
+                            <p className={`text-normal-text text-justify font-normal text-base leading-relaxed ${notoSansJP.className}`}>
+                                リーンスタートアップに基づいたアジャイル開発で、初期投資を抑えながらの迅速なプロトタイプを制作。
+                                実際にユーザーに使ってもらい、その反応を分析することで課題や改善点を明確にします。
+                            </p>
+                        </motion.div>
                     </div>
                 </div>
 
                 {/* User Behavior Research Section */}
                 <div className="w-full flex flex-col items-center">
-                    <div className="relative min-h-[232px] w-full">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 0.6 }}
+                        className="relative min-h-[232px] w-full"
+                    >
                         <Image
                             src="/images/user-behavior-research.png"
                             alt="User Behavior Research"
@@ -299,30 +385,44 @@ export function MobileNewBusinessDevelopment() {
                             quality={100}
                             className="w-full h-full object-cover"
                         />
-                    </div>
-                    <div className="bg-white p-5 pt-[30px] pb-6 w-[90%] -translate-y-[40px]">
-                        <h3 className={`text-xl font-bold ${notoSansJP.className} text-main-blue mb-6`}>ユーザー行動調査</h3>
-                        <p className={`text-normal-text text-justify font-normal text-base leading-relaxed ${notoSansJP.className}`}>
-                            ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
-                        </p>
+                    </motion.div>
+                    <div className="-translate-y-[40px] flex justify-center">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="bg-white p-5 pt-[30px] pb-6 w-[90%]"
+                        >
+                            <h3 className={`text-xl font-bold ${notoSansJP.className} text-main-blue mb-6`}>ユーザー行動調査</h3>
+                            <p className={`text-normal-text text-justify font-normal text-base leading-relaxed ${notoSansJP.className}`}>
+                                ユーザーの行動への理解、感情を観察して、ユーザー体験（UX）を向上させるための洞察を行います。最新技術のプロダクトは機能正解を持っていません。課題と向き合うことでユーザーにとって価値ある形にしようつなげていくのです。
+                            </p>
+                        </motion.div>
                     </div>
                 </div>
 
                 {/* Final Message Section */}
-                <p className="inline px-5 mt-[10px] leading-[180%] text-justify">
-                    <span className={`text-white ${notoSansJP.className} font-bold text-lg`}>
+                <motion.p 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.4 }}
+                    variants={staggerChildren}
+                    className="inline px-5 mt-[10px] leading-[180%] text-justify"
+                >
+                    <motion.span variants={fadeInUp} className={`text-white ${notoSansJP.className} font-bold text-lg`}>
                         私たちは、単なるシステム開発会社ではありません。
-                    </span>
-                    <span className={`text-white ${notoSansJP.className} font-bold text-lg`}>
+                    </motion.span>
+                    <motion.span variants={fadeInUp} className={`text-white ${notoSansJP.className} font-bold text-lg`}>
                         お客様のビジネスパートナーとして、
-                    </span>
-                    <span className={`text-key-blue text-[22px] font-bold ${notoSansJP.className}`}>
+                    </motion.span>
+                    <motion.span variants={fadeInUp} className={`text-key-blue text-[22px] font-bold ${notoSansJP.className}`}>
                         アイデアの具現化から、市場への投入、
-                    </span>
-                    <span className={`text-key-blue text-[22px] font-bold ${notoSansJP.className}`}>
+                    </motion.span>
+                    <motion.span variants={fadeInUp} className={`text-key-blue text-[22px] font-bold ${notoSansJP.className}`}>
                         そしてその後のグロースまで、一貫してサポートいたします！
-                    </span>
-                </p>
+                    </motion.span>
+                </motion.p>
             </div>
             <div 
             style={{
