@@ -38,7 +38,7 @@ export function MobileHeader() {
     }
 
     return (
-        <header className="md:hidden bg-key-visual-required z-50 fixed top-0 left-0 right-0 p-5">
+        <header className="md:hidden bg-key-visual-required z-50 fixed top-0 left-0 right-0 p-3">
             <div className="w-full flex justify-between items-center">
                 <Link href="/" className="text-white font-bold text-[40px] leading-[100%]">
                     Del Qui
