@@ -184,9 +184,7 @@ export function MobileNewBusinessDevelopment() {
                     <h1 className={`text-[32px] font-bold leading-tight tracking-wider text-white ${notoSansJP.className}`}>
                         アプリ開発
                         <br />
-                        <span className="mx-2 font-thin">
-                            x
-                        </span>
+                        <span className="mx-2 font-thin uppercase">×</span> 
                         <br />
                         新規事業
                     </h1>

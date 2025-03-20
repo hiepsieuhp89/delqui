@@ -1,12 +1,10 @@
 "use client"
 import { notoSansJP } from "@/fonts"
-
 export default function CompanyInformation() {
-
   return (
     <div className={`relative z-50 w-full bg-transparent text-white -mt-[350px] ${notoSansJP.className}`}>
       {/* Content container */}
-      <div className="relative mx-auto max-w-full px-4 py-12 md:py-14 md:px-6 lg:py-16 lg:px-8 xl:max-w-4xl" style={{ zIndex: 2 }}>
+      <div className="relative mx-auto max-w-full px-4 py-12 md:py-14 md:px-6 lg:pt-16 lg:pb-[150px] lg:px-8 xl:max-w-4xl" style={{ zIndex: 2 }}>
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center text-center pb-[30px] md:pb-[40px] lg:pb-[50px]">
           <h1 className={`text-[36px] md:text-[42px] lg:text-[45px] xl:text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>

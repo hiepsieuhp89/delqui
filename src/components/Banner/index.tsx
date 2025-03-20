@@ -20,7 +20,8 @@ const Banner = () => {
 
   return (
     <div className="w-full h-[120vh] bg-key-visual-required overflow-x-hidden">
-      <div className="mx-auto h-full flex flex-col md:flex-row items-center justify-between pb-[130px] md:pb-[100px] lg:pb-[120px] xl:pb-[130px] pr-[24px] md:pr-[30px] lg:pr-[40px] xl:pr-[54px] pl-[40px] md:pl-[80px] lg:pl-[120px] xl:pl-[160px] relative">
+      <div className="max-w-[1700px]
+      mx-auto h-full flex flex-col md:flex-row items-center justify-between pb-[130px] md:pb-[100px] lg:pb-[120px] xl:pb-[130px] pr-[24px] md:pr-[30px] lg:pr-[40px] xl:pr-[54px] pl-[40px] md:pl-[80px] lg:pl-[120px] xl:pl-[160px] relative">
         <motion.div
           className="absolute left-[30px] md:left-[60px] lg:left-[90px] xl:left-[120px] text-white z-10 mb-12"
           initial={{ opacity: 0, y: 50 }}
@@ -49,19 +50,14 @@ const Banner = () => {
           </div>
           <p
             className={`${allison.className} text-key-visual-copy text-2xl md:text-3xl lg:text-4xl xl:text-[56px] select-none transform -rotate-[8deg] pl-4 md:pl-6 lg:pl-8 xl:pl-12`}
-            style={{
-              letterSpacing: "3%",
-            }}
           >
-            Software Business
-            <br />
-            for Everyone
+            <span className="mb-4 block">Software Business</span>
+            <span className="block">for Everyone</span>
           </p>
         </motion.div>
 
         {/* Banner img */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           style={{ x: imageX, opacity }}

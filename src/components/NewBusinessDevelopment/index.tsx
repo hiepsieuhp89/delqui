@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useEffect, useRef } from "react"
 import { allison, notoSansJP } from "@/fonts"
 import { motion } from "framer-motion"
+import { X } from "lucide-react"
 
 const NewBusinessDevelopment = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -192,7 +193,9 @@ const NewBusinessDevelopment = () => {
           className="flex flex-col items-center justify-center text-center pt-[300px] md:pt-[350px] lg:pt-[420px] xl:pt-[488px] mb-[40px] md:mb-[50px] lg:mb-[60px]"
         >
           <h1 className={`text-[36px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-[700] leading-none tracking-[0.04em] text-center text-white ${notoSansJP.className}`}>
-            アプリ開発 <span className="mx-3 font-thin">×</span> 新規事業
+            アプリ開発 
+            <span className="mx-3 font-thin uppercase">×</span> 
+            新規事業
           </h1>
           <div className="w-8 md:w-9 xl:w-10 h-[1px] bg-white my-4 md:my-5 xl:my-6"></div>
           <p className={`font-medium text-base md:text-lg leading-tight tracking-wider text-center text-white uppercase font-poppins`}>
@@ -310,13 +313,13 @@ const NewBusinessDevelopment = () => {
         </motion.div>
 
         {/* Lean Agile Development Section */}
-        <div className="relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1290px] mb-[50px] md:mb-[60px] lg:mb-[65px] xl:mb-[70px] px-4 md:px-0">
+        <div className="relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1240px] mb-[50px] md:mb-[60px] lg:mb-[65px] xl:mb-[70px] px-4 md:px-0">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={slideInLeft}
-            className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute left-0 md:left-[10%] lg:left-[130px] top-0"
+            className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute left-0 md:left-[10%] lg:left-0 top-0"
           >
             <Image
               src="/images/lean-agile.png"
@@ -332,7 +335,7 @@ const NewBusinessDevelopment = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={slideInRight}
-            className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute right-0 md:right-[5%] lg:right-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start"
+            className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute right-0 md:right-[5%] lg:right-0 bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start"
           >
             <h3 className={`text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-3 md:mb-4`}>リーン・アジャイル開発</h3>
             <p className={`text-normal-text font-normal text-sm md:text-base leading-relaxed ${notoSansJP.className}`}>
@@ -343,13 +346,13 @@ const NewBusinessDevelopment = () => {
         </div>
 
         {/* User Behavior Research Section */}
-        <div className="w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1290px] relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[90px] px-4 md:px-0">
+        <div className="w-[90%] md:w-[95%] lg:w-[95%] xl:w-[1240px] relative h-[400px] md:h-[430px] lg:h-[460px] xl:h-[490px] mb-[60px] md:mb-[70px] lg:mb-[80px] xl:mb-[90px] px-4 md:px-0">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={slideInLeft}
-            className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute left-0 md:left-[5%] lg:left-[130px] bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start z-20"
+            className="bg-white h-[220px] md:h-[240px] lg:h-[260px] xl:h-[286px] w-[90%] md:w-[55%] lg:w-[58%] xl:w-[600px] absolute left-0 md:left-[5%] lg:left-0 bottom-0 p-[30px] md:p-[40px] lg:p-[45px] xl:p-[50px] flex flex-col justify-between items-start z-20"
           >
             <h3 className={`text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] font-bold ${notoSansJP.className} text-main-blue mb-3 md:mb-4`}>ユーザー行動調査</h3>
             <p className={`text-normal-text font-normal text-sm md:text-base leading-relaxed ${notoSansJP.className}`}>
@@ -361,7 +364,7 @@ const NewBusinessDevelopment = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={slideInRight}
-            className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute right-0 md:right-[10%] lg:right-[130px] top-0 z-10"
+            className="w-[90%] md:w-[60%] lg:w-[65%] xl:w-[750px] h-[320px] md:h-[350px] lg:h-[380px] xl:h-[400px] absolute right-0 md:right-[10%] lg:right-0 top-0 z-10"
           >
             <Image
               src="/images/user-behavior-research.png"
