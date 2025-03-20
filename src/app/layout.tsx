@@ -16,6 +16,9 @@ export default function RootLayout({
     <html>
       <head>
         <link rel="icon" href="/images/favicon.png" type="image/png" />
+        <title>
+          Del Qui Company
+        </title>
       </head>
       <body>
         <NextTopLoader
